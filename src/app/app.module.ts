@@ -15,7 +15,6 @@ import {LoginComponent } from './Component/login/login.component';
 @NgModule({
   imports: [SwiperModule],
   declarations: [
-    HomeComponent,
   ],
 })
 export class YourAppModule {}

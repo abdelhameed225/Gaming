@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+.banner .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span 
+{
+    background:linear-gradient(250deg,#0098ff 0%,#7b35c8 100%) !important;
+}
+
+.banner .owl-theme .owl-dots .owl-dot span {
+    width: 30px!important;
+    height: 5px!important;
+    margin: 5px 7px!important;
+    background: #333335!important;
+    display: block!important;
+    -webkit-backface-visibility: visible!important;/* For WebKit-based browsers */
+    backface-visibility: visible!important;/* For standard compatibility */
+    transition: opacity 0.2s ease!important;
+    border-radius: 30px!important;
+}
+.banner .owl-nav{
+    display: none !important;
+}
+.bannner .owl-prev{
+    background:#0098ff !important;
+    color: white !important;
+    position: relative;
+    top: -345px !important;
+    right: 459px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease-in-out;
+    padding: 9px !important;
+    opacity: 0 !important;
+}
+.bannner .owl-prev:hover{
+    background:#7b35c8 !important;
+    color: white !important;
+}
+
+.bannner .owl-next{
+    background:#0098ff !important;
+    color: white !important;
+    position: relative;
+    top: -345px !important;
+    left: 424px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease-in-out;
+    padding: 9px !important;
+    opacity: 0 !important;
+}
+.bannner .owl-next:hover{
+    background:#7b35c8 !important;
+    color: white !important;
+}
+
+.bannner:hover .owl-next{
+opacity: 1 !important;
+}
+.bannner:hover .owl-prev{
+    opacity: 1 !important;
+    }

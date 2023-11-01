@@ -3,14 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NabbarComponent } from './Component/nabbar/nabbar.component';
+import { FooterComponent } from './Component/footer/footer.component';
+import { FirstCompComponent } from './Component/first-comp/first-comp.component';
+import { SwiperModule } from 'swiper/angular';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
+
+@NgModule({
+  imports: [SwiperModule],
+})
+export class YourAppModule {}
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NabbarComponent,
+    FooterComponent,
+    FirstCompComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

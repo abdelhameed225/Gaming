@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Iproduct } from 'src/app/Interfaces/Iproduct/iproduct';
+import { ProductsService } from 'src/app/Services/product/products.service';
 
 @Component({
   selector: 'app-first-comp',
   templateUrl: './first-comp.component.html',
   styleUrls: ['./first-comp.component.css']
 })
-export class FirstCompComponent {
+export class FirstCompComponent implements OnInit {
+  constructor(public productService: ProductsService){}
+  product:Iproduct[]=[];
+  ngOnInit(): void {
+    this.product=this.productService.getProducts();
+  }
 
   isButtonVisible = false;
 

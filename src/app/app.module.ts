@@ -8,10 +8,15 @@ import { FooterComponent } from './Component/footer/footer.component';
 import { FirstCompComponent } from './Component/first-comp/first-comp.component';
 import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HomeComponent } from './Component/home/home.component';
+import {LoginComponent } from './Component/login/login.component';
 
 
 @NgModule({
   imports: [SwiperModule],
+  declarations: [
+    HomeComponent,
+  ],
 })
 export class YourAppModule {}
 
@@ -21,7 +26,9 @@ export class YourAppModule {}
     AppComponent,
     NabbarComponent,
     FooterComponent,
-    FirstCompComponent
+    FirstCompComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

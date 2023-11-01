@@ -10,9 +10,20 @@ import { ProductsService } from 'src/app/Services/product/products.service';
 })
 export class FirstCompComponent implements OnInit {
   constructor(public productService: ProductsService){}
-  product:Iproduct[]=[];
+  products:any;
   ngOnInit(): void {
-    this.product=this.productService.getProducts();
+    this.products=this.productService.getAllProducts().subscribe({
+      next:(response)=>{
+   
+        this.products=response;
+        console.log(response);
+        
+      },
+      error:(error)=>{
+        console.log(error);
+        
+      }
+     });
   }
 
   isButtonVisible = false;

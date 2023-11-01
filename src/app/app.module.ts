@@ -10,6 +10,7 @@ import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './Component/home/home.component';
 import {LoginComponent } from './Component/login/login.component';
+import { HttpClientModule }from '@angular/common/http';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ export class YourAppModule {}
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CarouselModule,
     

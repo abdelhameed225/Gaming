@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Iproduct } from 'src/app/Interfaces/Iproduct/iproduct';
 
@@ -6,10 +7,13 @@ import { Iproduct } from 'src/app/Interfaces/Iproduct/iproduct';
 })
 export class ProductsService {
 
-  constructor() { }
-  getProducts():Iproduct[]
+  constructor(private http:HttpClient) { }
+  baseUrl:string = 'http://localhost:5118/api/Products'
+  getAllProducts()
   {
-    return [];
-
+    return this.http.get(this.baseUrl,);
+  }
+  getProductById(productId:number) {
+    return this.http.get(`${this.baseUrl}/${productId}`);
   }
 }

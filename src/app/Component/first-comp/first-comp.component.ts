@@ -11,11 +11,13 @@ import { ProductsService } from 'src/app/Services/product/products.service';
 export class FirstCompComponent implements OnInit {
   constructor(public productService: ProductsService){}
   products:any;
+  isLoading:boolean = true;
   ngOnInit(): void {
     this.products=this.productService.getAllProducts().subscribe({
       next:(response)=>{
-   
+        
         this.products=response;
+        this.isLoading = false;
         console.log(response);
         
       },

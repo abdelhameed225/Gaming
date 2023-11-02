@@ -85,11 +85,7 @@
           <li>TYPE: {{ product.brandName }}</li>
         </ul>
 
-        <img
-          src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-          class="card-img-top"
-          alt="..."
-        />
+        <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
 
         <div class="cat-item">
           <ul>
@@ -114,7 +110,6 @@
               ><span class="currency-type"> EGP </span></ins
             >
           </div>
-          <br />
           <a href="#" class="btnn btn-primary">Add to cart</a>
         </div>
       </div>
@@ -153,24 +148,22 @@
     </div>
     <div class="col-9">
       <owl-carousel-o [options]="customOptions" class="bannner">
-        <ng-template carouselSlide>
+        <ng-template *ngFor="let product of products" carouselSlide>
           <!-- card -->
           <div
-            class="carrd"
+            class="card"
             (mouseenter)="showBtn()"
             (mouseleave)="showBtn()"
             style="width: 18rem"
           >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
             <ul class="product-number">
-              <li>TYPE: Samsung</li>
+              <li>TYPE: {{ product.brandName }}</li>
             </ul>
 
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
 
             <div class="cat-item">
               <ul>
@@ -191,265 +184,10 @@
                 class="product-content-bottom d-flex align-items-center justify-content-between"
               >
                 <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
                 >
               </div>
-              <br />
-              <a href="#" class="btnn btn-primary">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- card -->
-        </ng-template>
-        <ng-template carouselSlide>
-          <!-- card -->
-
-          <div
-            class="carrd"
-            (mouseenter)="showBtn()"
-            (mouseleave)="showBtn()"
-            style="width: 18rem"
-          >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
-            <ul class="product-number">
-              <li>TYPE: Samsung</li>
-            </ul>
-
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="cat-item">
-              <ul>
-                <li>
-                  <a>
-                    <i class="bi bi-eye-fill"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="heart">
-                    <i class="bi bi-suit-heart-fill"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div
-                class="product-content-bottom d-flex align-items-center justify-content-between"
-              >
-                <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
-                >
-              </div>
-              <br />
-              <a href="#" class="btnn btn-primary">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- card -->
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <!-- card -->
-
-          <div
-            class="carrd"
-            (mouseenter)="showBtn()"
-            (mouseleave)="showBtn()"
-            style="width: 18rem"
-          >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
-            <ul class="product-number">
-              <li>TYPE: Samsung</li>
-            </ul>
-
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="cat-item">
-              <ul>
-                <li>
-                  <a>
-                    <i class="bi bi-eye-fill"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="heart">
-                    <i class="bi bi-suit-heart-fill"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div
-                class="product-content-bottom d-flex align-items-center justify-content-between"
-              >
-                <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
-                >
-              </div>
-              <br />
-              <a href="#" class="btnn btn-primary">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- card -->
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <!-- card -->
-
-          <div
-            class="carrd"
-            (mouseenter)="showBtn()"
-            (mouseleave)="showBtn()"
-            style="width: 18rem"
-          >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
-            <ul class="product-number">
-              <li>TYPE: Samsung</li>
-            </ul>
-
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="cat-item">
-              <ul>
-                <li>
-                  <a>
-                    <i class="bi bi-eye-fill"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="heart">
-                    <i class="bi bi-suit-heart-fill"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div
-                class="product-content-bottom d-flex align-items-center justify-content-between"
-              >
-                <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
-                >
-              </div>
-              <br />
-              <a href="#" class="btnn btn-primary">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- card -->
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <!-- card -->
-
-          <div
-            class="carrd"
-            (mouseenter)="showBtn()"
-            (mouseleave)="showBtn()"
-            style="width: 18rem"
-          >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
-            <ul class="product-number">
-              <li>TYPE: Samsung</li>
-            </ul>
-
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="cat-item">
-              <ul>
-                <li>
-                  <a>
-                    <i class="bi bi-eye-fill"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="heart">
-                    <i class="bi bi-suit-heart-fill"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div
-                class="product-content-bottom d-flex align-items-center justify-content-between"
-              >
-                <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
-                >
-              </div>
-              <br />
-              <a href="#" class="btnn btn-primary">Add to cart</a>
-            </div>
-          </div>
-
-          <!-- card -->
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <!-- card -->
-
-          <div
-            class="carrd"
-            (mouseenter)="showBtn()"
-            (mouseleave)="showBtn()"
-            style="width: 18rem"
-          >
-            <h4 class="product-title">Alien ware Monitor T 46</h4>
-            <ul class="product-number">
-              <li>TYPE: Samsung</li>
-            </ul>
-
-            <img
-              src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100"
-              class="card-img-top"
-              alt="..."
-            />
-
-            <div class="cat-item">
-              <ul>
-                <li>
-                  <a>
-                    <i class="bi bi-eye-fill"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="heart">
-                    <i class="bi bi-suit-heart-fill"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div
-                class="product-content-bottom d-flex align-items-center justify-content-between"
-              >
-                <ins class="price-item--regular"
-                  ><span>7500.00 </span
-                  ><span class="currency-type"> EGP </span></ins
-                >
-              </div>
-              <br />
               <a href="#" class="btnn btn-primary">Add to cart</a>
             </div>
           </div>

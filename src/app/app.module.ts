@@ -11,11 +11,16 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './Component/home/home.component';
 import {LoginComponent } from './Component/login/login.component';
 import { HttpClientModule }from '@angular/common/http';
+import { NavbarLoginComponent } from './Component/navbar-login/navbar-login.component';
+import { RegesterComponent } from './Component/regester/regester.component';
 
 
 @NgModule({
   imports: [SwiperModule],
   declarations: [
+  
+  
+    RegesterComponent
   ],
 })
 export class YourAppModule {}
@@ -29,6 +34,7 @@ export class YourAppModule {}
     FirstCompComponent,
     HomeComponent,
     LoginComponent,
+    NavbarLoginComponent,
   ],
   imports: [
     BrowserModule,

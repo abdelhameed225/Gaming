@@ -20,7 +20,7 @@ import { RegesterComponent } from './Component/regester/regester.component';
   declarations: [
   
   
-    RegesterComponent
+
   ],
 })
 export class YourAppModule {}
@@ -35,6 +35,7 @@ export class YourAppModule {}
     HomeComponent,
     LoginComponent,
     NavbarLoginComponent,
+    RegesterComponent,
   ],
   imports: [
     BrowserModule,

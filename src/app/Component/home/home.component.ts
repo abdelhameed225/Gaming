@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 700,
+    margin:3,
     navText: ['<i class="bi bi-arrow-left"></i>', '<i class="bi bi-arrow-right"></i>'],
     responsive: {
       0: {
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
         items: 3
       },
       940: {
-        items: 3
+        items: 4
       }
     },
     nav: true

@@ -60,3 +60,49 @@ opacity: 1 !important;
 .bannner:hover .owl-prev{
     opacity: 1 !important;
     }
+
+
+
+    /* //////////////////////////////////// */
+    .bannnner .owl-prev{
+        background:#0098ff !important;
+        color: white !important;
+        position: relative;
+        top: -300px !important;
+        right: 560px !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 20px !important;
+        transition: all 0.3s ease-in-out;
+        padding: 9px !important;
+        opacity: 0 !important;
+    }
+    .bannnner .owl-prev:hover{
+        background:#7b35c8 !important;
+        color: white !important;
+    }
+    
+    .bannnner .owl-next{
+        background:#0098ff !important;
+        color: white !important;
+        position: relative;
+        top: -300px !important;
+        left: 559px !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 20px !important;
+        transition: all 0.3s ease-in-out;
+        padding: 9px !important;
+        opacity: 0 !important;
+    }
+    .bannnner .owl-next:hover{
+        background:#7b35c8 !important;
+        color: white !important;
+    }
+    
+    .bannnner:hover .owl-next{
+    opacity: 1 !important;
+    }
+    .bannnner:hover .owl-prev{
+        opacity: 1 !important;
+        }

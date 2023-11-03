@@ -13,6 +13,7 @@ import {LoginComponent } from './Component/login/login.component';
 import { HttpClientModule }from '@angular/common/http';
 import { NavbarLoginComponent } from './Component/navbar-login/navbar-login.component';
 import { RegesterComponent } from './Component/regester/regester.component';
+import { AboutusComponent } from './Component/aboutus/aboutus.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { RegesterComponent } from './Component/regester/regester.component';
   
   
 
+  
   ],
 })
 export class YourAppModule {}
@@ -36,6 +38,7 @@ export class YourAppModule {}
     LoginComponent,
     NavbarLoginComponent,
     RegesterComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

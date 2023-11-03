@@ -1,0 +1,37 @@
+.bttn-primary {
+    text-align: center;
+    color: white;
+    background: linear-gradient(250deg, #0098ff 0%, #7b35c8 100%);
+    padding: 10px 50px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+    transition: all ease-in-out 0.3s;
+    display: inline-flex;
+    align-items: center;
+    border: transparent;
+    justify-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+    text-decoration: none;
+    border-radius: 0 20px;
+    -webkit-border-radius: 0px 20px 0px 20px;
+    -moz-border-radius: 0px 20px 0px 20px;
+    -ms-border-radius: 0px 20px 0px 20px;
+    -o-border-radius: 0px 20px 0px 20px;
+    -webkit-transition: all ease-in-out 0.3s;
+    -moz-transition: all ease-in-out 0.3s;
+    -ms-transition: all ease-in-out 0.3s;
+    -o-transition: all ease-in-out 0.3s;
+  }
+  /* .bttn-primary:hover {
+    background: transparent;
+    color: #667283;
+    border: 1px solid;
+  } */
+  .pge{
+    padding-top: 150px !important;
+    height: fit-content !important;
+    width: 100% !important;
+  }

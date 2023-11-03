@@ -14,11 +14,21 @@ import { HttpClientModule }from '@angular/common/http';
 import { NavbarLoginComponent } from './Component/navbar-login/navbar-login.component';
 import { RegesterComponent } from './Component/regester/regester.component';
 import { AboutusComponent } from './Component/aboutus/aboutus.component';
+import { ProductDetailsComponent } from './Component/product-details/product-details.component';
+import { ProductstopComponent } from './Component/productstop/productstop.component';
+import { CategoriesComponent } from './Component/categories/categories.component';
+import { CatProductsComponent } from './Component/cat-products/cat-products.component';
+import { CattopComponent } from './Component/cattop/cattop.component';
+import { ProductViewComponent } from './Component/product-view/product-view.component';
+import { CartComponent } from './Component/cart/cart.component';
+import { WishlistComponent } from './Component/wishlist/wishlist.component';
 
 
 @NgModule({
   imports: [SwiperModule],
   declarations: [
+  
+  
   
   
 
@@ -38,7 +48,17 @@ export class YourAppModule {}
     LoginComponent,
     NavbarLoginComponent,
     RegesterComponent,
-    AboutusComponent
+    AboutusComponent,
+    ProductDetailsComponent,
+    ProductstopComponent,
+    CategoriesComponent,
+    CatProductsComponent,
+    CattopComponent,
+    ProductViewComponent,
+    CartComponent,
+    WishlistComponent
+
+
   ],
   imports: [
     BrowserModule,

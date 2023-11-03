@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Icategory } from 'src/app/Interfaces/Icategory/icategory';
 
@@ -5,11 +6,10 @@ import { Icategory } from 'src/app/Interfaces/Icategory/icategory';
   providedIn: 'root'
 })
 export class CategoryService {
-
-  constructor() { }
-  //   getCategory():Icategory[]
-  // {
-  //   return[]
-
-  // }
+  constructor(private http:HttpClient) { }
+  baseUrl:string = 'http://localhost:5118/api/Categories'
+  getAllCategory()
+  {
+    return this.http.get(this.baseUrl,);
+  }
 }

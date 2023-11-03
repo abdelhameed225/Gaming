@@ -67,9 +67,22 @@
     />
   </div>
 </div>
+<div style="height: 0.5px" class="bg-black">
+  <a
+    [routerLink]="['/products']"
+    class="btnn btn-primary"
+    style="top: -100px; left: 210px"
+    >Show Products<i class="bi bi-controller ms-3"></i
+  ></a>
+  <a
+    [routerLink]="['/categories']"
+    class="btnn btn-primary"
+    style="top: -100px; left: 210px; margin-left: 90px"
+    >Show Categories<i class="bi bi-controller ms-3"></i
+  ></a>
+</div>
 <div class="container-fluid bg-black">
   <div class="text-light fw-bold bstsell">Bestsellers of the week</div>
-
   <owl-carousel-o [options]="banner" class="bg-black banner">
     <ng-template *ngFor="let product of products" carouselSlide>
       <!-- card -->
@@ -118,6 +131,7 @@
       <!-- card -->
     </ng-template>
   </owl-carousel-o>
+
   <div class="bg-black" style="height: 250px; width: 100%"></div>
 </div>
 
@@ -205,7 +219,7 @@
         <img
           src="//gaming-workdo.myshopify.com/cdn/shop/files/main-conent-games.png?v=1671440689"
           alt=""
-          style="position: relative; top: -694px; left: 510px"
+          style="position: relative; top: -662px; left: 510px"
         />
       </div>
     </div>

@@ -104,7 +104,7 @@
         <div class="cat-item">
           <ul>
             <li>
-              <a>
+              <a [routerLink]="['/product', product.id]">
                 <i class="bi bi-eye-fill"></i>
               </a>
             </li>
@@ -143,25 +143,25 @@
       <h2 class="adresss">Pro Gaming</h2>
       <h2 class="besst">Categories</h2>
       <div>
-        <a href="" class="btn bttttn">
+        <button class="btn btttn" (click)="isLaptop()">
           <i class="bi bi-laptop-fill text-light me-3"></i>
           <span>Gaming Laptops</span>
-        </a>
+        </button>
       </div>
       <div>
-        <a href="" class="btn btttn">
+        <button class="btn btttn" (click)="isMonitor()">
           <i class="bi bi-display text-secondary me-3"></i>
           <span class="me-4">4K Monitors</span>
-        </a>
+        </button>
       </div>
       <div>
-        <a href="" class="btn btttn">
+        <button class="btn btttn" (click)="isGamingchair()">
           <i class="bi bi-hdd text-secondary me-3"></i>
-          <span class="me-4">Hard Disks</span>
-        </a>
+          <span class="me-4">Gaming Chaires</span>
+        </button>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-9" *ngIf="Catid == 0">
       <owl-carousel-o [options]="customOptions" class="bannner">
         <ng-template *ngFor="let product of products" carouselSlide>
           <!-- card -->
@@ -183,7 +183,61 @@
             <div class="cat-item">
               <ul>
                 <li>
-                  <a>
+                  <a [routerLink]="['/product', product.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="heart">
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div
+                class="product-content-bottom d-flex align-items-center justify-content-between"
+              >
+                <ins class="price-item--regular"
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
+                >
+              </div>
+              <a href="#" class="btnn btn-primary">Add to cart</a>
+            </div>
+          </div>
+
+          <!-- card -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!-- 
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////// -->
+    <div class="col-9" *ngIf="Catid != 0">
+      <owl-carousel-o [options]="customOptions" class="bannner">
+        <ng-template *ngFor="let product of productsByCat" carouselSlide>
+          <!-- card -->
+          <div
+            class="card"
+            (mouseenter)="showBtn()"
+            (mouseleave)="showBtn()"
+            style="width: 18rem"
+          >
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
+            <ul class="product-number">
+              <li>TYPE: {{ product.brandName }}</li>
+            </ul>
+
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+
+            <div class="cat-item">
+              <ul>
+                <li>
+                  <a [routerLink]="['/product', product.id]">
                     <i class="bi bi-eye-fill"></i>
                   </a>
                 </li>

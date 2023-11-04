@@ -538,7 +538,11 @@ position: relative;
     color:white;
     border:transparent;
 }
-
+.btttn:focus{
+    background:linear-gradient(250deg,#0098ff 0%,#7b35c8 100%);
+    color:white;
+    border:transparent;
+}
 
 
 

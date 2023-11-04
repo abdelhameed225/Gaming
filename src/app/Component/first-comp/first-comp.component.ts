@@ -11,7 +11,42 @@ import { ProductsService } from 'src/app/Services/product/products.service';
 export class FirstCompComponent implements OnInit {
   constructor(public productService: ProductsService){}
   products:any;
+  Catid:number=0;
+  productsByCat:any;
   isLoading:boolean = true;
+
+  isLaptop() {
+    this.Catid = 1;
+    this.fetchProductsByCategory();
+  }
+
+  isMonitor() {
+    this.Catid = 2;
+    this.fetchProductsByCategory();
+  }
+
+  isGamingchair() {
+    this.Catid = 3;
+    this.fetchProductsByCategory();
+  }
+
+  private fetchProductsByCategory() {
+    setTimeout(() => {
+      this.productService.getProductByCatId(this.Catid).subscribe({
+        next: (response) => {
+          this.productsByCat = response;
+          this.isLoading = false;
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      });
+    });
+  }
+
+
+
   ngOnInit(): void {
     this.products=this.productService.getAllProducts().subscribe({
       next:(response)=>{
@@ -26,6 +61,24 @@ export class FirstCompComponent implements OnInit {
         
       }
      });
+     
+
+/////////////////////////////////////////
+this.productsByCat=this.productService.getProductByCatId(this.Catid).subscribe({
+  next:(response)=>{
+    
+    this.productsByCat=response;
+    this.isLoading = false;
+    console.log(response);
+    
+  },
+  error:(error)=>{
+    console.log(error);
+    
+  }
+ });
+
+
   }
 
   isButtonVisible = false;

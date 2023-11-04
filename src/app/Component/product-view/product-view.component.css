@@ -4530,7 +4530,8 @@ ins {
 .product-main-section .product-item-img {
 	position: relative;
 	padding-top: 100%;
-	overflow: hidden
+	overflow: hidden;
+	left: 10px;
 }
 
 .product-main-section .open-lightbox {

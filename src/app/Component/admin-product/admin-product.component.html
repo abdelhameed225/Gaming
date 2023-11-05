@@ -1,9 +1,11 @@
-<app-productstop></app-productstop>
 <!-- /////////////////////////////////// -->
 <div class="container-fluid">
   <div class="row">
+    <div class="col-2" style="padding-left: 0px; position: fixed">
+      <app-dashboard style="padding-left: 0px; position: fixed"></app-dashboard>
+    </div>
     <!-- ////////////////// filter ///////////////////  -->
-    <div class="col-3">
+    <!-- <div class="col-2">
       <section>
         <h2 style="font-weight: bold">Filter</h2>
 
@@ -26,9 +28,9 @@
               id="panelsStayOpen-collapseOne"
               class="accordion-collapse collapse show"
             >
-              <div class="accordion-body">
-                <!-- ////////////////////////////////// -->
-                <div class="form-check ms-4 mt-3">
+              <div class="accordion-body"> -->
+    <!-- ////////////////////////////////// -->
+    <!-- <div class="form-check ms-4 mt-3">
                   <input
                     type="checkbox"
                     class="form-check-input"
@@ -43,9 +45,9 @@
                     for="radio1"
                     >All products</label
                   >
-                </div>
-                <!-- ////////////////////////////////////////////// -->
-                <div
+                </div> -->
+    <!-- ////////////////////////////////////////////// -->
+    <!-- <div
                   class="form-check ms-4 mb-3 mt-3"
                   *ngFor="let Category of categories"
                 >
@@ -64,11 +66,11 @@
                     >{{ Category.name }}</label
                   >
                 </div>
-                <br />
-                <!-- /////////////////////////////////// -->
+                <br /> -->
+    <!-- /////////////////////////////////// -->
 
-                <!-- /////////////////////////////////// -->
-              </div>
+    <!-- /////////////////////////////////// -->
+    <!-- </div>
             </div>
           </div>
           <div class="accordion-item">
@@ -117,19 +119,23 @@
           </div>
         </div>
       </section>
-    </div>
+    </div> -->
     <!-- ////////////////// filter ///////////////////  -->
 
-    <div class="col-9">
+    <div
+      class="col-9"
+      style="margin-left: 75px; padding-top: 46px; margin-left: 359px"
+    >
       <!-- //////////////////////// -->
-      <div class="container" *ngIf="Cattid != 0">
+      <!-- <div class="container" *ngIf="Cattid != 0">
         <div class="row">
-          <div class="col-3" *ngFor="let product of finalfilter">
-            <!-- card -->
-            <div class="card" style="width: 18rem">
-              <h4 class="product-title text-black">
-                <!-- Alien ware Monitor T 46 -->{{ product.title }}
-              </h4>
+          <div class="col-3" *ngFor="let product of finalfilter"> -->
+      <!-- card -->
+      <!-- <div class="card" style="width: 18rem">
+              <h4 class="product-title text-black"> -->
+      <!-- Alien ware Monitor T 46 -->
+      <!-- {{ product.title }} -->
+      <!-- </h4>
               <ul class="product-number">
                 <li>TYPE: {{ product.brandName }}</li>
               </ul>
@@ -161,12 +167,12 @@
                 </div>
                 <a href="#" class="btnn btn-primary">Add to cart</a>
               </div>
-            </div>
+            </div> -->
 
-            <!-- card -->
-          </div>
+      <!-- card -->
+      <!-- </div>
         </div>
-      </div>
+      </div> -->
       <!-- /////////////////// -->
 
       <div class="container" *ngIf="Cattid == 0">
@@ -190,11 +196,6 @@
                       <i class="bi bi-eye-fill"></i>
                     </a>
                   </li>
-                  <li>
-                    <a class="heart">
-                      <i class="bi bi-suit-heart-fill"></i>
-                    </a>
-                  </li>
                 </ul>
               </div>
               <div class="card-body">
@@ -202,11 +203,17 @@
                   class="product-content-bottom d-flex align-items-center justify-content-between"
                 >
                   <ins class="price-item--regular"
-                    ><span class="text-black">{{ product.price }} </span
+                    ><span class="text-black" style="margin-bottom: 15px"
+                      >{{ product.price }} </span
                     ><span class="currency-type text-black"> EGP </span></ins
                   >
                 </div>
-                <a href="#" class="btnn btn-primary">Add to cart</a>
+                <a href="#" class="btnn btn-primary"
+                  ><i class="bi bi-pen"></i>Edit</a
+                >
+                <a href="#" class="btnn bttn-primary"
+                  ><i class="bi bi-trash"></i>Delete</a
+                >
               </div>
             </div>
 

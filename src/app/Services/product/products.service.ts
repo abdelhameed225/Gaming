@@ -19,4 +19,13 @@ export class ProductsService {
   getProductByCatId(CatId:number) {
     return this.http.get(`${this.baseUrl}/category/${CatId}`);
   }
+  addProduct(prouduct:any) {
+    return this.http.post(this.baseUrl,prouduct);
+  }
+  editProduct(productId:number,prouduct:any) {
+    return this.http.put(`${this.baseUrl}/${productId}`,prouduct);
+  }
+  deleteProduct(productId:number) {
+    return this.http.delete(`${this.baseUrl}/${productId}`);
+  }
 }

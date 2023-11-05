@@ -1,0 +1,260 @@
+
+/* /////////////////////////////////////////////////// */
+.card {
+    color: white;
+    padding: 15px;
+    position: relative;
+    background:linear-gradient(148deg,rgba(1,152,255,.18) 0%,rgba(0,0,0,0) 100%);
+    border: linear-gradient(250deg,#0098ff 0%,#7b35c8 100%) solid  1px;
+    transition: all ease-in-out .5s;
+    -webkit-transition: all ease-in-out .5s;
+    -moz-transition: all ease-in-out .5s;
+    -ms-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
+    width: 100%;
+    height: 450px;
+    margin-bottom: 50px;
+    border-radius: 0 12px;
+    /* border:50px solid linear-gradient(250deg,#0098ff 0%,#7b35c8 100%) ; */
+
+}
+.card-body{
+    position: relative;
+  bottom: 8%;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    left: 11%;
+    position: relative;}
+
+ul{
+   
+        margin: 0;
+        padding: 0;
+        list-style: none;
+       
+    }
+    ins {
+        display: inline-flex;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        line-height: 1;
+        position: relative;
+        left: 32%;
+        bottom: 44%;
+    }
+
+    .btn-primary {
+        text-align: center;
+        color:white;
+        background:linear-gradient(250deg,#0098ff 0%,#4AE2F0 100%);
+        padding: 12px 40px;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        font-size: 14px;
+        transition: all ease-in-out .3s;
+        display: inline-flex;
+        align-items: center;
+        border: transparent;
+        justify-content: center;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0 20px;
+        -webkit-border-radius: 0px 20px 0px 20px;
+        -moz-border-radius: 0px 20px 0px 20px;
+        -ms-border-radius: 0px 20px 0px 20px;
+        -o-border-radius: 0px 20px 0px 20px;
+        -webkit-transition: all ease-in-out .3s;
+        -moz-transition: all ease-in-out .3s;
+        -ms-transition: all ease-in-out .3s;
+        -o-transition: all ease-in-out .3s;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-right: 15px;
+    }
+    .btn-primary:hover{
+        background:transparent;
+        color:#667283;
+        border: 1px solid;
+    }
+
+    .ownpading{
+        padding-top: 110px;
+    }
+    .transformed-element { 
+        opacity: 1;
+        transition: all 0.6s ease-in-out;
+    }
+
+      
+      /* Centered content within the div */
+      .btnn-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 20px;
+      }
+      
+      /* You can customize the button styling if needed */
+      .btnn {
+        position: relative !important;
+        left: 10%;
+            bottom: -9%;
+        text-decoration: none;
+      }
+    /* ////////////////////////////////////// */
+
+
+.currency-type{
+font-size: 12px;
+line-height: normal;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 12px;
+    border: 1px solid transparent;
+    background: linear-gradient(to left, #0098ff 50%, #7b35c8);
+    
+    mask: linear-gradient(white 0 0) padding-box, linear-gradient(white 0 0);
+    
+    /* WebKit-specific properties with prefixes */
+    -webkit-mask: linear-gradient(white 0 0) padding-box, linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    -webkit-mask-image: linear-gradient(white 0 0), linear-gradient(white 0 0);
+    -webkit-mask-position: 0 0, 0 0;
+    -webkit-mask-size: auto, auto;
+    -webkit-mask-repeat: no-repeat, no-repeat;
+    mask-composite: exclude;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0!important;
+}
+.product-number{
+    color:#667283 ;
+}
+
+.cat-item{
+    text-align: center;
+    line-height: 45px;
+    background: linear-gradient(25deg, #0098ff, #7b35c8);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    width: fit-content;
+    position: relative;
+    top: -30px;
+    left: 100px;
+    border-radius: 0 15px;
+}
+.cat-item ul{
+    padding: 0;
+    margin: 0;
+}
+.cat-item ul li{
+    display: inline-block;
+list-style: none;
+position: relative;
+}
+.cat-item ul li::after{
+    content:'';
+    width: 1px;
+    height:fit-content;
+    position: absolute;
+    background: rgb(255, 255, 255 , .15);
+    left:-2px;
+    top: 10px;
+}
+.cat-item ul li:first-child:after{
+    display: none;
+}
+.cat-item ul li a{
+    padding: 0 18px;
+    color: rgb(255, 255, 255);
+}
+.cat-item ul li a:hover{
+    color: #c0c0c0;
+    cursor: pointer;
+
+}
+.cat-item ul li .heart:hover{
+    color: #FF5353;
+    cursor: pointer;
+}
+.card:hover .cat-item{
+    opacity: 1;
+}
+
+/* //////////////////////////////////////////////////// */
+#lo{
+    float: right !important;
+}
+.form-select{
+    width: 150px !important;
+}
+#lop{
+ justify-content: space-between !important;
+}
+.accordion-button{
+background: black !important;
+color: white !important;
+box-shadow: none !important;
+font-weight: bold;
+}
+.accordion-button:active , .accordion-button:focus
+{
+    border: none !important;
+
+}
+.accordion-button:hover
+{
+background: linear-gradient(250deg,#0098ff 0%,#7b35c8 100%) !important;
+}
+.accordion-button::after {
+  content:"";
+color: aliceblue;
+}
+/* ///////////// delete/////////////////////// */
+.bttn-primary {
+    text-align: center;
+    color:white;
+    background:linear-gradient(250deg,#7A68D9 0%,#7b35c8 100%);
+    padding: 12px 40px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+    transition: all ease-in-out .3s;
+    display: inline-flex;
+    align-items: center;
+    border: transparent;
+    justify-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0 20px;
+    -webkit-border-radius: 0px 20px 0px 20px;
+    -moz-border-radius: 0px 20px 0px 20px;
+    -ms-border-radius: 0px 20px 0px 20px;
+    -o-border-radius: 0px 20px 0px 20px;
+    -webkit-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -ms-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 15px;
+}
+.bttn-primary:hover{
+    background:transparent;
+    color:#667283;
+    border: 1px solid;
+}
+

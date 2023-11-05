@@ -1,4 +1,3 @@
-<app-navbar-login></app-navbar-login>
 <main
   id="MainContent"
   class="content-for-layout wrapper"
@@ -35,19 +34,9 @@
             <h2>Register</h2>
           </div>
           <div class="form-wrapper register-form">
-            <form
-              method="post"
-              action="https://gaming-workdo.myshopify.com/account"
-              id="create_customer"
-              accept-charset="UTF-8"
-              data-login-with-shop-sign-up="true"
-              novalidate="novalidate"
-            >
-              <input
-                type="hidden"
-                name="form_type"
-                value="create_customer"
-              /><input type="hidden" name="utf8" value="✓" />
+            <form [formGroup]="RegisterForm" (submit)="Register($event)">
+              <input type="hidden" name="form_type" value="create_customer" />
+              <input type="hidden" name="utf8" value="✓" />
               <div class="form-container">
                 <div class="form-heading">
                   <h4>Your Personal Details</h4>
@@ -55,46 +44,291 @@
               </div>
               <div class="form-container">
                 <div class="row">
-                  <div class="col-md-6 col-12">
+                  <div class="col-12">
                     <div class="form-group field">
-                      <label>First Name<sup aria-hidden="true">*</sup>:</label>
+                      <label>UserName<sup aria-hidden="true">*</sup>:</label>
                       <input
                         class="form-control"
                         type="text"
-                        name="customer[first_name]"
-                        id="RegisterForm-FirstName"
+                        name="UserName"
+                        id="UserName"
                         autocomplete="given-name"
-                        placeholder="First name"
+                        placeholder="UserName"
+                        formControlName="UserName"
                       />
+                      <ng-container *ngIf="getUserName.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getUserName.hasError('required')"
+                        >
+                          UserName is Required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getUserName.hasError('minlength')"
+                        >
+                          User name must be more than 5 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getUserName.hasError('maxlength')"
+                        >
+                          User name must be less than 15 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-6 col-12">
+              <div class="form-group field">
+                <label>Last Name<sup aria-hidden="true">*</sup>:</label>
+                <input class="form-control" type="text" name="customer[last_name]" id="RegisterForm-LastName" autocomplete="family-name" placeholder="Last name">
+              </div>
+            </div> -->
+
+                  <div class="col-md-4 col-12">
+                    <div class="form-group field">
+                      <label>Government<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="Government"
+                        id="Government"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="text"
+                        formControlName="Government"
+                        aria-required="true"
+                        placeholder="Government"
+                      />
+                      <ng-container *ngIf="getGovernment.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('required')"
+                        >
+                          the Government Name is Required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('minlength')"
+                        >
+                          Government name must be more than 5 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('maxlength')"
+                        >
+                          Government name must be less than 10 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group field">
+                      <label>City<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="email"
+                        name="City"
+                        id="City"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="given-name"
+                        aria-required="true"
+                        formControlName="City"
+                        placeholder="City"
+                      />
+                      <ng-container *ngIf="getCity.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('required')"
+                        >
+                          City name required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('minlength')"
+                        >
+                          City name must be more than 4 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('maxlength')"
+                        >
+                          City name must be less than 10 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group field">
+                      <label>Street<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="Street"
+                        id="Street"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        formControlName="Street"
+                        autocomplete="text"
+                        aria-required="true"
+                        placeholder="Street"
+                      />
+                      <ng-container *ngIf="getStreet.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getStreet.hasError('required')"
+                        >
+                          Street name required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getStreet.hasError('minlength')"
+                        >
+                          Street Name should be more than 5 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getStreet.hasError('maxlength')"
+                        >
+                          Street Name should be less than 15 letters
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="form-group field">
-                      <label>Last Name<sup aria-hidden="true">*</sup>:</label>
+                      <label
+                        >BulidingNumber<sup aria-hidden="true">*</sup>:</label
+                      >
+                      <input
+                        class="form-control"
+                        type="number"
+                        name="BulidingNumber"
+                        id="BulidingNumber"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        formControlName="BulidingNumber"
+                        autocomplete="BulidingNumber"
+                        aria-required="true"
+                        placeholder="BulidingNumber"
+                      />
+                      <ng-container *ngIf="getBulidingNumber.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getBulidingNumber.hasError('required')"
+                        >
+                          Buliding Number is Required
+                        </div>
+
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getBulidingNumber.hasError('maxlength')"
+                        >
+                          Street Name should be less than 15 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group field">
+                      <label>PostalCode<sup aria-hidden="true">*</sup>:</label>
                       <input
                         class="form-control"
                         type="text"
-                        name="customer[last_name]"
-                        id="RegisterForm-LastName"
-                        autocomplete="family-name"
-                        placeholder="Last name"
+                        name="PostalCode"
+                        id="PostalCode"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        formControlName="PostalCode"
+                        autocomplete="PostalCode"
+                        aria-required="true"
+                        placeholder="PostalCode"
                       />
+                      <ng-container *ngIf="getPostalCode.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPostalCode.hasError('required')"
+                        >
+                          Postal Code name required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPostalCode.hasError('minlength')"
+                        >
+                          Postal Code should be more than 5 numbers
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPostalCode.hasError('maxlength')"
+                        >
+                          Postal Code should be less than 8 numbers
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
+
                   <div class="col-12">
                     <div class="form-group field">
                       <label>E-mail<sup aria-hidden="true">*</sup>:</label>
                       <input
                         class="form-control"
                         type="email"
-                        name="customer[email]"
-                        id="RegisterForm-email"
+                        formControlName="Email"
+                        name="Email"
+                        id="Email"
                         spellcheck="false"
                         autocapitalize="off"
                         autocomplete="email"
                         aria-required="true"
                         placeholder="Email"
                       />
+                      <ng-container *ngIf="getEmail.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getEmail.hasError('email')"
+                        >
+                          Invalid email format.
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getEmail.hasError('required')"
+                        >
+                          Email is required.
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group field">
+                      <label>PhoneNumber<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        formControlName="PhoneNumber"
+                        name="PhoneNumber"
+                        id="PhoneNumber"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="Phone"
+                        aria-required="true"
+                        placeholder="PhoneNumber"
+                      />
+                      <ng-container *ngIf="getPhoneNumber.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPhoneNumber.hasError('required')"
+                        >
+                          PhoneNumber is required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPhoneNumber.hasError('pattern')"
+                        >
+                          Invalid phone number format. Please enter a 11-digit
+                          number.
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
                 </div>
@@ -108,11 +342,42 @@
                       <input
                         class="form-control"
                         type="password"
-                        name="customer[password]"
-                        id="RegisterForm-password"
+                        formControlName="Password"
+                        name="Password"
+                        id="Password"
                         aria-required="true"
                         placeholder="Password"
                       />
+                      <ng-container *ngIf="getPassword.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getPassword.hasError('required')"
+                        >
+                          Password is required
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="form-group field">
+                      <label
+                        >Confirm Password<sup aria-hidden="true">*</sup>:</label
+                      >
+                      <input
+                        class="form-control"
+                        type="password"
+                        formControlName="ConfirmPassword"
+                        name="ConfirmPassword"
+                        id="ConfirmPassword"
+                        aria-required="true"
+                        placeholder="ConfirmPassword"
+                      />
+                      <ng-container *ngIf="getConfirmPassword.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getConfirmPassword.hasError('required')"
+                        >
+                          Confirm Password is required
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
                 </div>
@@ -121,7 +386,7 @@
                 <div class="row align-items-center row-reverse">
                   <div class="col-lg-4 col-12">
                     <button class="btn submit-btn" type="submit">
-                      Send message
+                      Register
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="35"

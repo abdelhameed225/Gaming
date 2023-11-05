@@ -1,3 +1,4 @@
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,17 +23,15 @@ import { CattopComponent } from './Component/cattop/cattop.component';
 import { ProductViewComponent } from './Component/product-view/product-view.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { WishlistComponent } from './Component/wishlist/wishlist.component';
+import { DashboardComponent } from './Component/dashboard/dashboard.component';
+import { AdminProductComponent } from './Component/admin-product/admin-product.component';
+import { AdminCategoryComponent } from './Component/admin-category/admin-category.component';
 
 
 @NgModule({
   imports: [SwiperModule],
   declarations: [
-  
-  
-  
-  
-
-  
+    
   ],
 })
 export class YourAppModule {}
@@ -56,7 +55,11 @@ export class YourAppModule {}
     CattopComponent,
     ProductViewComponent,
     CartComponent,
-    WishlistComponent
+    WishlistComponent,
+    DashboardComponent,
+    AdminProductComponent,
+    AdminCategoryComponent,
+    
 
 
   ],
@@ -65,6 +68,8 @@ export class YourAppModule {}
     HttpClientModule,
     AppRoutingModule,
     CarouselModule,
+    ReactiveFormsModule
+
     
   ],
   providers: [],

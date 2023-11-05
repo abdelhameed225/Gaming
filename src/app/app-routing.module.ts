@@ -8,9 +8,12 @@ import { AboutusComponent } from './Component/aboutus/aboutus.component';
 import { CategoriesComponent } from './Component/categories/categories.component';
 import { CatProductsComponent } from './Component/cat-products/cat-products.component';
 import { ProductViewComponent } from './Component/product-view/product-view.component';
+import { AdminProductComponent } from './Component/admin-product/admin-product.component';
+import { AdminCategoryComponent } from './Component/admin-category/admin-category.component';
 
 const routes: Routes = [
   { path: 'Home', component:FirstCompComponent},
+  { path: '', component:FirstCompComponent},
   { path: 'login', component:LoginComponent},
   { path: 'regester', component:RegesterComponent},
   { path: 'aboutus', component:AboutusComponent},
@@ -18,6 +21,8 @@ const routes: Routes = [
   { path: 'categories', component:CategoriesComponent},
   { path: 'categories/:id', component:CatProductsComponent},
   { path: 'product/:id', component:ProductViewComponent},
+  { path: 'admin/product', component:AdminProductComponent},
+  { path: 'admin/category', component:AdminCategoryComponent},
 ];
 
 @NgModule({

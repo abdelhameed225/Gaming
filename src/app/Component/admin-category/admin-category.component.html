@@ -1,0 +1,39 @@
+<app-dashboard style="padding-left: 0px; position: fixed"></app-dashboard>
+<div class="container pge">
+  <div class="section-title">
+    <h2 class="text-center p-4 text-secondary fw-bold">Collections</h2>
+  </div>
+  <div class="row" role="list">
+    <div class="col-md-4 col-sm-4 col-12" *ngFor="let category of categories">
+      <div class="card-wrapper">
+        <a href="">
+          <img
+            src="{{ category.imgUrl }}"
+            alt="All Collections"
+            loading="lazy"
+            width="370px"
+            height="180px"
+          />
+        </a>
+        <div
+          class="card-content d-flex justify-content-center align-items-center flex-column"
+        >
+          <h5
+            class="card-heading full-unstyled-link my-3 text-secondary ms-auto me-auto"
+          >
+            {{ category.name }}
+          </h5>
+          <!-- <a href="/collections/frontpage" class="btn">24 - Items</a> -->
+          <div>
+            <a href="#" class="btnn btn-primary"
+              ><i class="bi bi-pen"></i>Edit</a
+            >
+            <a href="#" class="btnn bttn-primary"
+              ><i class="bi bi-trash"></i>Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

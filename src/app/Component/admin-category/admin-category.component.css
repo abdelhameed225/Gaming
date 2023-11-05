@@ -1,0 +1,81 @@
+.btn-primary {
+  text-align: center;
+  color:white;
+  background:linear-gradient(250deg,#0098ff 0%,#4AE2F0 100%);
+  padding: 12px 40px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  transition: all ease-in-out .3s;
+  display: inline-flex;
+  align-items: center;
+  border: transparent;
+  justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0 20px;
+  -webkit-border-radius: 0px 20px 0px 20px;
+  -moz-border-radius: 0px 20px 0px 20px;
+  -ms-border-radius: 0px 20px 0px 20px;
+  -o-border-radius: 0px 20px 0px 20px;
+  -webkit-transition: all ease-in-out .3s;
+  -moz-transition: all ease-in-out .3s;
+  -ms-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+.btn-primary:hover{
+  background:transparent;
+  color:#667283;
+  border: 1px solid;
+}
+  /* .bttn-primary:hover {
+    background: transparent;
+    color: #667283;
+    border: 1px solid;
+  } */
+  .pge{
+    height: fit-content !important;
+    width: 100% !important;
+    margin-left: 359px !important;
+  }
+  /* ///////////// delete/////////////////////// */
+.bttn-primary {
+  text-align: center;
+  color:white;
+  background:linear-gradient(250deg,#7A68D9 0%,#7b35c8 100%);
+  padding: 12px 40px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  transition: all ease-in-out .3s;
+  display: inline-flex;
+  align-items: center;
+  border: transparent;
+  justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0 20px;
+  -webkit-border-radius: 0px 20px 0px 20px;
+  -moz-border-radius: 0px 20px 0px 20px;
+  -ms-border-radius: 0px 20px 0px 20px;
+  -o-border-radius: 0px 20px 0px 20px;
+  -webkit-transition: all ease-in-out .3s;
+  -moz-transition: all ease-in-out .3s;
+  -ms-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: 15px;
+}
+.bttn-primary:hover{
+  background:transparent;
+  color:#667283;
+  border: 1px solid;
+}
+

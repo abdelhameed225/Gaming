@@ -57,7 +57,6 @@ Onchecked(event: any, Catid:number)
         let obj=prArray[i];
         this.finalfilter.push(obj);
         if (this.finalfilter==null) {
-          console.log("hi from loop");
           
         }
       }

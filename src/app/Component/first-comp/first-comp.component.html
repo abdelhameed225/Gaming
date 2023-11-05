@@ -144,19 +144,19 @@
       <h2 class="besst">Categories</h2>
       <div>
         <button class="btn btttn" (click)="isLaptop()">
-          <i class="bi bi-laptop-fill text-light me-3"></i>
+          <i class="bi bi-laptop-fill me-3"></i>
           <span>Gaming Laptops</span>
         </button>
       </div>
       <div>
         <button class="btn btttn" (click)="isMonitor()">
-          <i class="bi bi-display text-secondary me-3"></i>
+          <i class="bi bi-display me-3"></i>
           <span class="me-4">4K Monitors</span>
         </button>
       </div>
       <div>
         <button class="btn btttn" (click)="isGamingchair()">
-          <i class="bi bi-hdd text-secondary me-3"></i>
+          <i class="bi bi-unity me-3"></i>
           <span class="me-4">Gaming Chaires</span>
         </button>
       </div>
@@ -264,18 +264,73 @@
           <!-- card -->
         </ng-template>
       </owl-carousel-o>
-      <div style="height: 0.5px">
-        <img
-          src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-3.png?v=1671514613"
-          alt=""
-          style="position: relative; top: -555px; left: 620px"
-        />
-        <img
-          src="//gaming-workdo.myshopify.com/cdn/shop/files/main-conent-games.png?v=1671440689"
-          alt=""
-          style="position: relative; top: -662px; left: 510px"
-        />
-      </div>
+    </div>
+    <!-- 
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////// -->
+    <div class="col-9" *ngIf="Catid == 0">
+      <owl-carousel-o [options]="customOptions" class="bannner">
+        <ng-template *ngFor="let product of productsByCat" carouselSlide>
+          <!-- card -->
+          <div
+            class="card"
+            (mouseenter)="showBtn()"
+            (mouseleave)="showBtn()"
+            style="width: 18rem"
+          >
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
+            <ul class="product-number">
+              <li>TYPE: {{ product.brandName }}</li>
+            </ul>
+
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+
+            <div class="cat-item">
+              <ul>
+                <li>
+                  <a [routerLink]="['/product', product.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="heart">
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div
+                class="product-content-bottom d-flex align-items-center justify-content-between"
+              >
+                <ins class="price-item--regular"
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
+                >
+              </div>
+              <a href="#" class="btnn btn-primary">Add to cart</a>
+            </div>
+          </div>
+
+          <!-- card -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////// -->
+    <div style="height: 0.5px">
+      <img
+        src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-3.png?v=1671514613"
+        alt=""
+        style="position: relative; top: -555px; left: 986px"
+      />
+      <img
+        src="//gaming-workdo.myshopify.com/cdn/shop/files/main-conent-games.png?v=1671440689"
+        alt=""
+        style="position: relative; top: -662px; left: 831px"
+      />
     </div>
   </div>
 </div>

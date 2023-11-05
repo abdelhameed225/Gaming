@@ -7,8 +7,8 @@
     transform:all 0.5s ;
 }
 .vaan{
-    border-top: 0.25px solid ;
-    border-bottom:  0.25px solid ;
+    border-top: 0.25px solid #474747b1 ;
+    border-bottom:  0.25px solid  #474747b1;
     transform:all 0.5s ;
 
     }
@@ -17,5 +17,14 @@
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     transform:all 0.5s;
 
+}
+.sear::placeholder{
+    color: #474747 !important;
+}
+.sear{
+    border:  0.25px solid  #838383!important;
+}
+.sear:active , .sear:focus{
+    box-shadow: none;
 }
 

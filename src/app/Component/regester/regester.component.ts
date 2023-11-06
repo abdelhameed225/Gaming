@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
@@ -10,7 +11,11 @@ import { tick } from '@angular/core/testing';
   styleUrls: ['./regester.component.css'],
 })
 export class RegesterComponent {
-  constructor(private _AuthService: AuthService, private _Router: Router) {}
+  constructor(
+    private _AuthService: AuthService,
+    private _Router: Router,
+    private toastr: ToastrService
+  ) {}
   RegisterForm = new FormGroup({
     UserName: new FormControl('', [
       Validators.required,
@@ -92,11 +97,13 @@ export class RegesterComponent {
       this._AuthService.register(this.RegisterForm.value).subscribe({
         next: (response) => {
           // console.log(response);
-          console.log('aaaaaaaaaaaaaz');
+
           this.isLoading = false;
+          this.toastr.success('Please login', 'User created successfully');
           this._Router.navigate(['/login']);
         },
         error: (error) => {
+          this.toastr.error(JSON.parse(error.error), 'Failed to register');
           console.log(error);
         },
       });

@@ -28,4 +28,16 @@ export class CartService {
       responseType: 'text',
     });
   }
+  increaseCartItem(cartItemId: any) {
+    return this.http.put(`${this.baseUrl}/increase/${cartItemId}`, null, {
+      headers: this.headers,
+      responseType: 'text',
+    });
+  }
+  decreaseCartItem(cartItemId: any) {
+    return this.http.put(`${this.baseUrl}/decrease/${cartItemId}`, null, {
+      headers: this.headers,
+      responseType: 'text',
+    });
+  }
 }

@@ -91,6 +91,7 @@
                             >
                             <div class="qty-spinner quantity">
                               <button
+                                (click)="decrese(cartItem.id)"
                                 class="quantity-decrement quantity__button no-js-hidden"
                                 name="minus"
                                 type="button"
@@ -123,6 +124,7 @@
                                 data-index="1"
                               />
                               <button
+                                (click)="increse(cartItem.id)"
                                 class="quantity__button no-js-hidden"
                                 name="plus"
                                 type="button"

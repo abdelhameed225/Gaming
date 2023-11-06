@@ -47,6 +47,36 @@ export class CartComponent implements OnInit {
       },
     });
   }
+  increse(id: any) {
+    this._CartService.increaseCartItem(id).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        console.log(response);
+        this.loadCart();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {
+        this.loadCart();
+      },
+    });
+  }
+  decrese(id: any) {
+    this._CartService.decreaseCartItem(id).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        console.log(response);
+        this.loadCart();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {
+        this.loadCart();
+      },
+    });
+  }
   //////////////////////
   ngOnInit(): void {
     this.loadCart();

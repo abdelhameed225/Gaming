@@ -62,6 +62,7 @@
 
       <!-- Login user -->
       <li
+        *ngIf="!isLogin"
         class="nav-item dropdown ms-4"
         style="text-decoration: none; list-style: none"
       >
@@ -92,7 +93,39 @@
               >Create Account</a
             >
           </li>
+        </ul>
+      </li>
+      <li
+        *ngIf="isLogin"
+        class="nav-item dropdown ms-4"
+        style="text-decoration: none; list-style: none"
+      >
+        <a
+          class="nav-link fw-bold text-light"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="currentColor"
+            class="bi bi-person-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+            />
+          </svg>
+        </a>
+        <ul class="dropdown-menu">
+          <li *ngIf="isAdmin">
+            <a class="dropdown-item" [routerLink]="['/admin/']">Admin Portal</a>
+          </li>
           <li><a class="dropdown-item" href="#">Wish List</a></li>
+          <li><a class="dropdown-item" (click)="handleLogout()">Logout</a></li>
         </ul>
       </li>
 
@@ -129,9 +162,10 @@
 
       <!-- Cart -->
       <a
+        *ngIf="isLogin"
         class="nav-link active fw-bold text-light ms-4 d-flex"
         aria-current="page"
-        href="#"
+        [routerLink]="['/cart']"
       >
         <p class="mt-3" style="line-height: normal">
           My Cart :
@@ -182,7 +216,7 @@
     </a>
     <form class="d-flex me-auto ms-auto" role="search">
       <input
-        class="form-control sear "
+        class="form-control sear"
         style="
           border-radius: 0 20px 0 20px;
           width: 360px;

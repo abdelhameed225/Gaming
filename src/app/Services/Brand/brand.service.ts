@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ibrand } from 'src/app/Interfaces/Ibrand/ibrand';
 
@@ -6,10 +7,11 @@ import { Ibrand } from 'src/app/Interfaces/Ibrand/ibrand';
 })
 export class BrandService {
 
-  constructor() { }
-  //   getBrand():Ibrand[]
-  // {
-  //   return[]
-
-  // }
+  constructor(private http:HttpClient) { }
+  baseUrl:string = 'http://localhost:5118/api/Brands'
+  getAllBrands()
+  {
+    return this.http.get(this.baseUrl,);
+  }
 }
+

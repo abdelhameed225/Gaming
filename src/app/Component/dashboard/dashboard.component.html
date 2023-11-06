@@ -24,6 +24,8 @@
     <li class="nav-item">
       <a
         class="btn linkk align-middle px-0 text-light"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
         [routerLink]="['/Home']"
       >
         <i style="margin-right: 50px" class="fs-4 bi-house fs-5"></i>
@@ -36,6 +38,8 @@
     </li>
     <li>
       <a
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
         [routerLink]="['/admin/product']"
         class="btn linkk px-0 align-middle text-light"
         routerLink="products"
@@ -54,7 +58,9 @@
     </li>
     <li>
       <a
-        [routerLink]="['admin/category']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
+        [routerLink]="['/admin/category']"
         data-bs-toggle="collapse"
         class="btn linkk px-0 align-middle text-light"
         routerLink="categories"

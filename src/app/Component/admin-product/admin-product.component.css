@@ -257,4 +257,8 @@ color: aliceblue;
     color:#667283;
     border: 1px solid;
 }
+a:active, a:focus{
+    background:linear-gradient(250deg,#0098ff 0%,#7b35c8 100%) !important;
+
+}
 

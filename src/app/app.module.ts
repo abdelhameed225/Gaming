@@ -26,12 +26,14 @@ import { WishlistComponent } from './Component/wishlist/wishlist.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { AdminProductComponent } from './Component/admin-product/admin-product.component';
 import { AdminCategoryComponent } from './Component/admin-category/admin-category.component';
+import { NewProductComponent } from './Component/new-product/new-product.component';
 
 
 @NgModule({
   imports: [SwiperModule],
   declarations: [
     
+  
   ],
 })
 export class YourAppModule {}
@@ -59,6 +61,8 @@ export class YourAppModule {}
     DashboardComponent,
     AdminProductComponent,
     AdminCategoryComponent,
+    NewProductComponent,
+
     
 
 

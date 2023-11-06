@@ -10,6 +10,7 @@ import { CatProductsComponent } from './Component/cat-products/cat-products.comp
 import { ProductViewComponent } from './Component/product-view/product-view.component';
 import { AdminProductComponent } from './Component/admin-product/admin-product.component';
 import { AdminCategoryComponent } from './Component/admin-category/admin-category.component';
+import { DashboardComponent } from './Component/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'Home', component:FirstCompComponent},
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'product/:id', component:ProductViewComponent},
   { path: 'admin/product', component:AdminProductComponent},
   { path: 'admin/category', component:AdminCategoryComponent},
+  { path: 'admin', component:DashboardComponent},
+
 ];
 
 @NgModule({

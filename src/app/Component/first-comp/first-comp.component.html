@@ -84,7 +84,7 @@
 <div class="container-fluid bg-black">
   <div class="text-light fw-bold bstsell">Bestsellers of the week</div>
   <owl-carousel-o [options]="banner" class="bg-black banner">
-    <ng-template *ngFor="let product of products" carouselSlide>
+    <ng-template *ngFor="let product of products; let x = index" carouselSlide>
       <!-- card -->
       <div
         class="card"

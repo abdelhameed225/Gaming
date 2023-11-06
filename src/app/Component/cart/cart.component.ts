@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/Services/Cart/cart.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class CartComponent implements OnInit {
 
   isLoading: boolean = false;
   subtotal: number = 0;
-  constructor(private _CartService: CartService) {}
+  constructor(
+    private _CartService: CartService,
+    private toastr: ToastrService
+  ) {}
   ///////////////////////////////
   handleDelete(id: any) {
     //////////////////////////////////////////////////////
@@ -20,9 +24,11 @@ export class CartComponent implements OnInit {
         this.isLoading = false;
         console.log(response);
         this.loadCart();
+        this.toastr.success('Item Deleted Successfully');
       },
       error: (error) => {
         console.log(error);
+        this.toastr.success('Failed to delete item');
       },
       complete: () => {
         this.loadCart();

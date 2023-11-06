@@ -10,8 +10,8 @@ import { FirstCompComponent } from './Component/first-comp/first-comp.component'
 import { SwiperModule } from 'swiper/angular';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './Component/home/home.component';
-import {LoginComponent } from './Component/login/login.component';
-import { HttpClientModule }from '@angular/common/http';
+import { LoginComponent } from './Component/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarLoginComponent } from './Component/navbar-login/navbar-login.component';
 import { RegesterComponent } from './Component/regester/regester.component';
 import { AboutusComponent } from './Component/aboutus/aboutus.component';
@@ -27,18 +27,16 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { AdminProductComponent } from './Component/admin-product/admin-product.component';
 import { AdminCategoryComponent } from './Component/admin-category/admin-category.component';
 import { AddnewProductComponent } from './Component/addnew-product/addnew-product.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [SwiperModule],
-  declarations: [
-    
-  
-  
-  ],
+  declarations: [],
 })
 export class YourAppModule {}
-
 
 @NgModule({
   declarations: [
@@ -62,23 +60,19 @@ export class YourAppModule {}
     DashboardComponent,
     AdminProductComponent,
     AdminCategoryComponent,
-    AddnewProductComponent
-
-
-    
-
-
+    AddnewProductComponent,
   ],
   imports: [
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     CarouselModule,
-    ReactiveFormsModule
-
-    
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

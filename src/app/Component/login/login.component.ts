@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 @Component({
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/Services/Auth/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private _AuthService: AuthService, private _Router: Router) {}
+  constructor(
+    private _AuthService: AuthService,
+    private _Router: Router,
+    private toastr: ToastrService
+  ) {}
   LoginForm = new FormGroup({
     UserName: new FormControl('', [
       Validators.required,
@@ -43,7 +48,8 @@ export class LoginComponent {
           this._Router.navigate(['/Home']);
         },
         error: (error) => {
-          console.log(error);
+          console.log('error');
+          this.toastr.error(JSON.parse(error.error).title, 'Failed To login');
         },
       });
       //   //coneection

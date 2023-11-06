@@ -5,6 +5,7 @@ import { Iproduct } from 'src/app/Interfaces/Iproduct/iproduct';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { CartService } from 'src/app/Services/Cart/cart.service';
 import { ProductsService } from 'src/app/Services/product/products.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-first-comp',
@@ -19,7 +20,8 @@ export class FirstCompComponent implements OnInit {
     public productService: ProductsService,
     private _AuthService: AuthService,
     private _Router: Router,
-    private _CartService: CartService
+    private _CartService: CartService,
+    private toastr: ToastrService
   ) {
     _AuthService.user.subscribe({
       next: () => {
@@ -50,6 +52,7 @@ export class FirstCompComponent implements OnInit {
       console.log('test');
       this._CartService.addToCart(id).subscribe({
         next: (response) => {
+          this.toastr.success('Item added to cart successfully');
           console.log('done', response);
         },
         error: (error) => {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 @Component({
@@ -36,8 +37,7 @@ export class LoginComponent {
     if (this.LoginForm.status == 'VALID') {
       this._AuthService.login(this.LoginForm.value).subscribe({
         next: (response) => {
-          // console.log(response);
-          console.log('aaaaaaaaaaaaaz', JSON.parse(response).token);
+          this._AuthService.setUserData(response);
 
           this.isLoading = false;
           this._Router.navigate(['/Home']);

@@ -58,22 +58,21 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="cart-item" id="CartItem-1">
+                      <tr
+                        *ngFor="let cartItem of cartItems"
+                        class="cart-item"
+                        id="CartItem-1"
+                      >
                         <td class="cart-item__media" data-label="Product">
                           <a href="#">
-                            <img src="assets/img/gaming/1q.png" />
+                            <img src="{{ cartItem.product.imgUrl }}" />
                           </a>
                         </td>
                         <td data-label="Name">
-                          <a href="#" class="cart-item__name"
-                            >Colossus Ergonomic Gaming Office Chair</a
-                          >
-                          <dl>
-                            <div class="product-option">
-                              <dt>Color:</dt>
-                              <dd>White</dd>
-                            </div>
-                          </dl>
+                          <a href="#" class="cart-item__name">{{
+                            cartItem.product.title
+                          }}</a>
+
                           <p class="product-option"></p>
                           <ul
                             class="discounts list-unstyled"
@@ -82,7 +81,8 @@
                           ></ul>
                         </td>
                         <td data-label="cart-price">
-                          3560 <span class="currency-type">EGP</span>
+                          {{ cartItem.product.price }}
+                          <span class="currency-type">EGP</span>
                         </td>
                         <td class="cart-item__quantity" data-label="quantity">
                           <div class="cart-item__quantity-wrapper">
@@ -116,7 +116,7 @@
                                 class="quantity__input"
                                 type="number"
                                 name="updates[]"
-                                value="3"
+                                value="{{ cartItem.amount }}"
                                 min="0"
                                 aria-label="Quantity for Colossus Ergonomic Gaming Office Chair"
                                 id="Quantity-1"
@@ -211,12 +211,13 @@
                           </div>
                           <div class="cart-item__price-wrapper">
                             <span class="price--end">
-                              10,680 <span class="currency-type">EGP</span>
+                              {{ cartItem.product.price * cartItem.amount }}
+                              <span class="currency-type">EGP</span>
                             </span>
                           </div>
                           <div id="Remove-1" class="remove-btn" data-index="1">
                             <a
-                              href="#"
+                              (click)="handleDelete(cartItem.id)"
                               aria-label="Remove Colossus Ergonomic Gaming Office Chair - White"
                             >
                               <svg
@@ -253,7 +254,8 @@
                 role="status"
                 aria-hidden="true"
               >
-                New subtotal: 10,680 <span class="currency-type">EGP</span>
+                New subtotal: {{ subtotal }}
+                <span class="currency-type">EGP</span>
               </p>
               <p
                 class="visually-hidden"
@@ -298,7 +300,7 @@
                   <div class="totals">
                     <h3 class="totals__subtotal">Subtotal</h3>
                     <p class="totals__subtotal-value">
-                      10,680 <span class="currency-type">EGP</span>
+                      {{ subtotal }} <span class="currency-type">EGP</span>
                     </p>
                   </div>
                   <div></div>

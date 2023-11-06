@@ -81,18 +81,20 @@ export class RegesterComponent {
   get getBulidingNumber() {
     return this.RegisterForm.controls['BulidingNumber'];
   }
-
+  isLoading: boolean = false;
   Register(e: Event) {
     e.preventDefault();
     // console.log(this.RegisterForm);
+    this.isLoading = true;
     if (this.RegisterForm.status == 'VALID') {
       //coneection with api
+
       this._AuthService.register(this.RegisterForm.value).subscribe({
         next: (response) => {
           // console.log(response);
-          if (response.message === 'success') {
-            this._Router.navigate(['/login']);
-          }
+          console.log('aaaaaaaaaaaaaz');
+          this.isLoading = false;
+          this._Router.navigate(['/login']);
         },
         error: (error) => {
           console.log(error);

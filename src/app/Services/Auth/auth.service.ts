@@ -10,7 +10,15 @@ export class AuthService {
   register(userData: object): Observable<any> {
     return this._HttpClient.post(
       'http://localhost:5118/api/Account/register',
-      userData
+      userData,
+      { responseType: 'text' }
+    );
+  }
+  login(userData: object): Observable<any> {
+    return this._HttpClient.post(
+      'http://localhost:5118/api/Account/login',
+      userData,
+      { responseType: 'text' }
     );
   }
 }

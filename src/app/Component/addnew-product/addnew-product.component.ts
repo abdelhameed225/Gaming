@@ -21,38 +21,38 @@ export class AddnewProductComponent implements OnInit {
       };
     }
   }
-  constructor(public categoryService: CategoryService, public brandService: BrandService){}
-  categories:any;
-  brands:any;
-  isLoading:boolean = true;
+  constructor(public categoryService: CategoryService, public brandService: BrandService) { }
+  categories: any;
+  brands: any;
+  isLoading: boolean = true;
   ngOnInit(): void {
-    this.categories=this.categoryService.getAllCategory().subscribe({
-      next:(response)=>{
-        
-        this.categories=response;
+    this.categories = this.categoryService.getAllCategory().subscribe({
+      next: (response) => {
+
+        this.categories = response;
         this.isLoading = false;
         console.log(response);
-        
+
       },
-      error:(error)=>{
+      error: (error) => {
         console.log(error);
-        
+
       }
-     });
-     ///////////////////////////////////
-     this.brands=this.brandService.getAllBrands().subscribe({
-      next:(response)=>{
-        
-        this.brands=response;
+    });
+    ///////////////////////////////////
+    this.brands = this.brandService.getAllBrands().subscribe({
+      next: (response) => {
+
+        this.brands = response;
         this.isLoading = false;
         console.log(response);
-        
+
       },
-      error:(error)=>{
+      error: (error) => {
         console.log(error);
-        
+
       }
-     });
+    });
   }
   ProductForm = new FormGroup({
     ProductTitle: new FormControl('', [Validators.required]),
@@ -107,8 +107,10 @@ export class AddnewProductComponent implements OnInit {
     // console.log(this.RegisterForm);
     if (this.ProductForm.status == 'VALID') {
       //conection with api
-      console.log();
-    }
-  }
+      console.log(this.ProductForm.value);
+    }
+    console.log(this.ProductForm.value);
+
+  }
 }
 

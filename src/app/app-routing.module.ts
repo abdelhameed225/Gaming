@@ -14,6 +14,7 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { authGuard } from './Guards/auth/auth.guard';
 import { adminGuard } from './Guards/admin/admin.guard';
+import { AddnewProductComponent } from './Component/addnew-product/addnew-product.component';
 
 const routes: Routes = [
   { path: 'Home', component: FirstCompComponent },
@@ -29,6 +30,11 @@ const routes: Routes = [
     path: 'admin/product',
     canActivate: [adminGuard],
     component: AdminProductComponent,
+  },
+  {
+    path: 'admin/product/new',
+    canActivate: [adminGuard],
+    component: AddnewProductComponent,
   },
   {
     path: 'admin/category',

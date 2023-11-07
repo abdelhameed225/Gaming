@@ -284,7 +284,7 @@
                           {{ Brand.name }}
                         </option>
                       </select>
-                      <ng-container *ngIf="getProductRating.touched">
+                      <!-- <ng-container *ngIf="getProductRating.touched">
                         <div
                           class="form-text text-danger"
                           *ngIf="getProductRating.hasError('required')"
@@ -303,7 +303,7 @@
                         >
                           Rating Should Be More Than 0
                         </div>
-                      </ng-container>
+                      </ng-container> -->
                     </div>
                   </div>
                 </div>
@@ -315,7 +315,11 @@
               >
                 <div class="row align-items-center row-reverse">
                   <div class="col-lg-4 col-12">
-                    <button class="btn submit-btn" type="submit">
+                    <button
+                      class="btn submit-btn"
+                      type="submit"
+                      (click)="Add($event)"
+                    >
                       Add
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

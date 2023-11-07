@@ -109,7 +109,11 @@
               </a>
             </li>
             <li>
-              <a class="heart">
+              <a
+                href="javascript:;"
+                class="heart"
+                (click)="handelAddToWishList(product.id)"
+              >
                 <i class="bi bi-suit-heart-fill"></i>
               </a>
             </li>
@@ -132,7 +136,6 @@
           >
         </div>
       </div>
-
       <!-- card -->
     </ng-template>
   </owl-carousel-o>

@@ -247,7 +247,10 @@
             >
               <td class="cart-item__media" data-label="Product">
                 <a href="#">
-                  <img src="{{ product.imgUrl }}" />
+                  <img
+                    src="{{ product.imgUrl }}"
+                    alt="..."
+                  />
                 </a>
               </td>
               <td data-label="Name">
@@ -281,7 +284,7 @@
                   <a
                     aria-label="Remove Colossus Ergonomic Gaming Office Chair - White"
                     class="addd"
-                    [routerLink]="['/admin/product/new']"
+                    [routerLink]="['/admin/product/edit/0']"
                   >
                     <!-- (click)="handleDelete(product.id)" -->
                     <svg
@@ -304,6 +307,7 @@
                   <a
                     aria-label="Remove Colossus Ergonomic Gaming Office Chair - White"
                     class="editt"
+                    [routerLink]="['/admin/product/edit', product.id]"
                   >
                     <!-- (click)="handleDelete(product.id)" -->
                     <svg

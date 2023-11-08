@@ -40,7 +40,7 @@
             <h2>Add New Product</h2>
           </div>
           <div class="form-wrapper register-form">
-            <form [formGroup]="ProductForm" (submit)="Add($event)">
+            <form [formGroup]="ProductForm">
               <input type="hidden" name="form_type" value="create_Product" />
               <input type="hidden" name="utf8" value="✓" />
               <div class="form-container">
@@ -56,6 +56,7 @@
                       <input
                         class="form-control"
                         type="text"
+                        [(ngModel)]="title"
                         name="title"
                         id="title"
                         autocomplete="given-name"
@@ -79,6 +80,7 @@
                       <input
                         class="form-control"
                         type="text"
+                        [(ngModel)]="description"
                         name="ProductDescription"
                         id="ProductDescription"
                         autocomplete="given-name"
@@ -96,14 +98,15 @@
                     </div>
                   </div>
                   <!-- ================================================== -->
-                  <div class="col-md-6 col-6">
+                  <div class="col-md-4 col-12">
                     <div class="form-group field">
                       <label>SKU</label>
                       <input
                         class="form-control"
-                        type="text"
+                        type="number"
                         name="ProductSKU"
                         id="SKU"
+                        [(ngModel)]="sku"
                         spellcheck="false"
                         autocapitalize="off"
                         autocomplete="text"
@@ -134,13 +137,14 @@
                     </div>
                   </div>
                   <!-- ================================================== -->
-                  <div class="col-md-4 col-12">
+                  <div class="col-md-6 col-6">
                     <div class="form-group field">
                       <label>Price</label>
                       <input
                         class="form-control"
                         type="number"
                         name="ProductPrice"
+                        [(ngModel)]="price"
                         id="Price"
                         spellcheck="false"
                         autocapitalize="off"
@@ -172,8 +176,9 @@
                       <label>Quantity</label>
                       <input
                         class="form-control"
-                        type="text"
+                        type="number"
                         name="ProductQuantity"
+                        [(ngModel)]="stock"
                         id="Quantity"
                         spellcheck="false"
                         autocapitalize="off"
@@ -204,9 +209,10 @@
                       <label>Rating</label>
                       <input
                         class="form-control"
-                        type="text"
+                        type="number"
                         name="ProductRating"
                         id="Rating"
+                        [(ngModel)]="rating"
                         spellcheck="false"
                         autocapitalize="off"
                         formControlName="ProductRating"
@@ -219,7 +225,7 @@
                           class="form-text text-danger"
                           *ngIf="getProductRating.hasError('required')"
                         >
-                          Quantity is required
+                          Rating is required
                         </div>
                         <div
                           class="form-text text-danger"
@@ -236,76 +242,68 @@
                       </ng-container>
                     </div>
                   </div>
-                  <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+                  <!-- /////////////////////////////////////////////// -->
+
                   <div class="col-md-6 col-6">
                     <div class="form-group field">
-                      <label>Category Name</label>
-                      <select name="type" class="form-control">
-                        <option selected na>-- Select Category --</option>
+                      <label for="" class="form-label">Category Name</label>
+                      <select
+                        name="type"
+                        class="form-control"
+                        formControlName="Categoty"
+                        [(ngModel)]="category_Id"
+                      >
+                        <option value="0" selected na>-- Select Type --</option>
                         <option
-                          *ngFor="let Category of categories"
-                          value="{{ Category.id }}"
+                          *ngFor="let caatt of categories"
+                          value="{{ caatt.id }}"
                         >
-                          {{ Category.name }}
+                          {{ caatt.name }}
                         </option>
                       </select>
-                      <!-- <ng-container *ngIf="getProductRating.touched">
+                      <ng-container *ngIf="getCategoryname.touched">
                         <div
                           class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('required')"
+                          *ngIf="getCategoryname.hasError('required')"
                         >
-                          Quantity is required
+                          Category is required
                         </div>
-                        <div
-                          class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('min')"
-                        >
-                          Rating Should Be Less Than 5
-                        </div>
-                        <div
-                          class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('max')"
-                        >
-                          Rating Should Be More Than 0
-                        </div>
-                      </ng-container> -->
+                      </ng-container>
                     </div>
                   </div>
-                  <!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+                  <!-- ////////////////////////////////////////////// -->
+                  <!-- /////////////////////////////////////////////// -->
+
                   <div class="col-md-6 col-6">
                     <div class="form-group field">
-                      <label>Brand Name</label>
-                      <select name="type" class="form-control">
-                        <option selected na>-- Select Brand --</option>
+                      <label for="" class="form-label">Brand</label>
+                      <select
+                        name="type"
+                        class="form-control"
+                        formControlName="Brand"
+                        [(ngModel)]="brandId"
+                      >
+                        <option value="0" selected na>-- Select Type --</option>
                         <option
-                          *ngFor="let Brand of brands"
-                          value="{{ Brand.id }}"
+                          *ngFor="let brand of brands"
+                          value="{{ brand.id }}"
                         >
-                          {{ Brand.name }}
+                          {{ brand.name }}
                         </option>
                       </select>
-                      <!-- <ng-container *ngIf="getProductRating.touched">
+                      <ng-container *ngIf="getBrandname.touched">
                         <div
                           class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('required')"
+                          *ngIf="getBrandname.hasError('required')"
                         >
-                          Quantity is required
+                          Brand is required
                         </div>
-                        <div
-                          class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('min')"
-                        >
-                          Rating Should Be Less Than 5
-                        </div>
-                        <div
-                          class="form-text text-danger"
-                          *ngIf="getProductRating.hasError('max')"
-                        >
-                          Rating Should Be More Than 0
-                        </div>
-                      </ng-container> -->
+                      </ng-container>
                     </div>
                   </div>
+
+                  <!-- ////////////////////////////////////////////// -->
                 </div>
               </div>
               <!-- ================================================== -->
@@ -318,9 +316,9 @@
                     <button
                       class="btn submit-btn"
                       type="submit"
-                      (click)="Add($event)"
+                      (click)="Add()"
                     >
-                      Add
+                      {{ productId > 0 ? "Edit" : "Add" }}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="35"
@@ -369,39 +367,39 @@
                     height: 400px;
                     width: 400px;
                     position: relative;
-                    left: 9px;
+                    left: 10px;
                     top: 10px;
                   "
                 />
               </div>
-               <!-- card -->
+                 <!-- card -->
             </div>
             <div class="row" style="position: relative; left: 0px; top: 45px">
-              <!-- <div class="form-group field form-control"> -->
-              <input
-                class="btn bttn-primary rounded"
-                (change)="img($event)"
-                type="file"
-                name="ProductImage"
-                spellcheck="false"
-                autocapitalize="off"
-                formControlName="ProductImage"
-                autocomplete="Rating"
-                aria-required="true"
-              />
-              <ng-container *ngIf="getProductImage.touched">
-                <div
-                  class="form-text text-danger"
-                  *ngIf="getProductImage.hasError('required')"
-                >
-                  Product Image is required
-                </div>
-              </ng-container>
+              <div class="form-group field form-control">
+                <input
+                  class="btn btn-warning rounded"
+                  (change)="img($event)"
+                  type="file"
+                  name="ProductImage"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  formControlName="ProductImage"
+                  autocomplete="Rating"
+                  aria-required="true"
+                />
+                <ng-container *ngIf="getProductImage.touched">
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getProductImage.hasError('required')"
+                  >
+                    Product Image is required
+                  </div>
+                </ng-container>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- </div> -->
   </section>
 </main>

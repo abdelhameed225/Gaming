@@ -67,7 +67,7 @@ right: 0;
 }
 .linkk:hover{
     background:linear-gradient(250deg,#0098ff 0%,#7b35c8 100%)!important;
-    width: 100%;
+    width: 275px;
     transition: all 0.3s ease-in-out;
 }
 .linkk:active ,.linkk:focus {

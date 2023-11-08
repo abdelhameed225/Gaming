@@ -3,6 +3,25 @@
   <div class="section-title">
     <h2 class="text-center p-4 text-secondary fw-bold">Collections</h2>
   </div>
+  <div class="d-flex justify-content-center back-toshop">
+    <a [routerLink]="['/admin/category/edit/0']" class="back-btn">
+      <span class="svg-ic">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-plus"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+          />
+        </svg>
+      </span>
+      Add New Category
+    </a>
+  </div>
   <div class="row" role="list">
     <div class="col-md-4 col-sm-4 col-12" *ngFor="let category of categories">
       <div class="card-wrapper">
@@ -25,10 +44,15 @@
           </h5>
           <!-- <a href="/collections/frontpage" class="btn">24 - Items</a> -->
           <div>
-            <a href="#" class="btnn btn-primary"
+            <a
+              [routerLink]="['/admin/category/edit', category.id]"
+              class="btnn btn-primary"
               ><i class="bi bi-pen"></i>Edit</a
             >
-            <a href="#" class="btnn bttn-primary"
+            <a
+              href="javascript:;"
+              class="btnn bttn-primary"
+              (click)="handleDelete(category.id)"
               ><i class="bi bi-trash"></i>Delete</a
             >
           </div>

@@ -63,8 +63,8 @@ export class FirstCompComponent implements OnInit {
       });
     } else {
       this._Router.navigate(['/login']);
-    }
-  }
+    }
+  }
   isLaptop() {
     this.Catid = 1;
     this.fetchProductsByCategory();

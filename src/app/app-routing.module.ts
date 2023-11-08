@@ -17,6 +17,7 @@ import { adminGuard } from './Guards/admin/admin.guard';
 import { WishlistComponent } from './Component/wishlist/wishlist.component';
 import { AddnewProductComponent } from './Component/addnew-product/addnew-product.component';
 import { OrdersummaryComponent } from './Component/ordersummary/ordersummary.component';
+import { AddNewCatComponent } from './Component/add-new-cat/add-new-cat.component';
 
 const routes: Routes = [
   { path: 'Home', component: FirstCompComponent },
@@ -34,9 +35,14 @@ const routes: Routes = [
     component: AdminProductComponent,
   },
   {
-    path: 'admin/product/new',
+    path: 'admin/product/edit/:id',
     canActivate: [adminGuard],
     component: AddnewProductComponent,
+  },
+  {
+    path: 'admin/category/edit/:id',
+    canActivate: [adminGuard],
+    component: AddNewCatComponent,
   },
   {
     path: 'admin/category',

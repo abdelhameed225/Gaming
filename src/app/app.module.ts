@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -31,10 +31,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { AddNewCatComponent } from './Component/add-new-cat/add-new-cat.component';
 
 @NgModule({
   imports: [SwiperModule],
-  declarations: [],
+  declarations: [
+  ],
 })
 export class YourAppModule {}
 
@@ -61,6 +63,8 @@ export class YourAppModule {}
     AdminProductComponent,
     AdminCategoryComponent,
     AddnewProductComponent,
+    AddNewCatComponent
+
   ],
   imports: [
     CommonModule,
@@ -71,6 +75,7 @@ export class YourAppModule {}
     AppRoutingModule,
     CarouselModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

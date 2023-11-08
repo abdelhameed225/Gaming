@@ -1,0 +1,121 @@
+<div
+  class="d-flex flex-column align-items-center justify-content-center align-items-sm-start text-white min-vh-100 dash"
+>
+  <a
+    href="/"
+    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+    style="margin-left: 63px"
+  >
+    <span class="fs-1 d-none d-sm-inline menu fw-bold text-light">Gaming </span
+    ><span
+      style="
+        font-weight: bold;
+        color: #7b35c8;
+        font-size: 35px;
+        margin-left: 0px;
+      "
+      >.</span
+    >
+  </a>
+  <ul
+    class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-light justify-content-start"
+    id="menu"
+  >
+    <li class="nav-item">
+      <a
+        class="btn linkk align-middle px-0 text-light"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
+        [routerLink]="['/Home']"
+      >
+        <i style="margin-right: 50px" class="fs-4 bi-house fs-5"></i>
+        <span
+          class="ms-1 d-none d-sm-inline"
+          style="font-size: 20px !important; margin-right: 50px"
+          >Home</span
+        >
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
+        [routerLink]="['/admin/product']"
+        class="btn linkk px-0 align-middle text-light"
+        routerLink="products"
+      >
+        <i
+          style="position: relative; left: -39px"
+          class="bi bi-controller fs-5"
+        ></i>
+        <span
+          style=""
+          class="ms-1 d-none d-sm-inline"
+          style="font-size: 20px !important; position: relative; left: 14px"
+          >Products</span
+        ></a
+      >
+    </li>
+    <li>
+      <a
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLinkActive]="''"
+        [routerLink]="['/admin/category']"
+        data-bs-toggle="collapse"
+        class="btn linkk px-0 align-middle text-light"
+        routerLink="categories"
+      >
+        <i
+          style="position: relative; left: -29px"
+          class="bi bi-tags-fill fs-5"
+        ></i>
+        <span
+          class="ms-1 d-none d-sm-inline"
+          style="font-size: 20px !important; position: relative; left: 23px"
+          >Categories</span
+        ></a
+      >
+    </li>
+    <li>
+      <a
+        href="#submenu3"
+        data-bs-toggle="collapse"
+        class="btn linkk px-0 align-middle text-light"
+        routerLink="orders"
+      >
+        <i
+          style="position: relative; left: -47px"
+          class="bi bi-cart-fill fs-5"
+        ></i>
+        <span
+          class="ms-1 d-none d-sm-inline"
+          style="font-size: 20px !important; position: relative; left: 5px"
+          >Orders</span
+        >
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div class="dropdown pb-4">
+    <a
+      href="#"
+      class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+      id="dropdownUser1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <i class="bi bi-person-check-fill"></i>
+      <span class="d-none d-sm-inline mx-1">{{ userData.user.userName }}</span>
+    </a>
+    <ul
+      class="dropdown-menu dropdown-menu-dark text-small shadow"
+      aria-labelledby="dropdownUser1"
+    >
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li>
+        <hr class="dropdown-divider" />
+      </li>
+      <li><a class="dropdown-item" href="#">Sign out</a></li>
+    </ul>
+  </div>
+</div>

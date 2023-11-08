@@ -1,0 +1,360 @@
+<app-nabbar></app-nabbar>
+<div class="frst bg-black">
+  <img class="left" src="assets/images/Half-bluthooth.png" alt="" />
+  <img class="right" src="assets/images/Half-bluthooth-right.png" alt="" />
+  <img
+    class="rightlight"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-2.png?v=1671440608"
+    alt=""
+  />
+  <img
+    class="middle"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-1.png?v=1671440643"
+    alt=""
+  />
+  <img
+    class="icon1"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/round-img-big.png?v=1671440773"
+    alt=""
+  />
+  <img
+    class="icon2"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/round-img-small.png?v=1671440815"
+    alt=""
+  />
+  <img
+    class="icon3"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/full-bluthooth.png?v=1671432444"
+    alt=""
+  />
+  <img
+    class="icon4"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/top-star.png?v=1671440863"
+    alt=""
+  />
+  <img
+    class="icon5"
+    src="//gaming-workdo.myshopify.com/cdn/shop/files/main-conent-games.png?v=1671440689"
+    alt=""
+  />
+  <div class="container main">
+    <div class="row">
+      <div class="col">
+        <div class="feat d-flex align-items-center text-center">
+          <div class="feattt">
+            <span class="featt btn-label"> Featured </span>
+            <span> New featured collection \ Gaming. Collector </span>
+          </div>
+        </div>
+        <div class="featttt">
+          <span class="fw-bold text-light best">Best</span>
+          <span class="adress"> Pro Gaming</span>
+          <p class="fw-bold text-light acc">Accessories</p>
+        </div>
+        <p class="text-secondary">
+          Gaming accessories include gear such as headsets, extra
+          controllers,<br />
+          charging stations, memory devices, carrying cases and much more.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div style="height: 0.5px">
+    <img
+      class="img5"
+      src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-3.png?v=1671514613"
+      alt=""
+    />
+  </div>
+</div>
+<div style="height: 0.5px" class="bg-black">
+  <a
+    [routerLink]="['/products']"
+    class="btnn btn-primary"
+    style="top: -100px; left: 210px"
+    >Show Products<i class="bi bi-controller ms-3"></i
+  ></a>
+  <a
+    [routerLink]="['/categories']"
+    class="btnn btn-primary"
+    style="top: -100px; left: 210px; margin-left: 90px"
+    >Show Categories<i class="bi bi-controller ms-3"></i
+  ></a>
+</div>
+<div class="container-fluid bg-black">
+  <div class="text-light fw-bold bstsell">Bestsellers of the week</div>
+  <owl-carousel-o [options]="banner" class="bg-black banner">
+    <ng-template *ngFor="let product of products; let x = index" carouselSlide>
+      <!-- card -->
+      <div
+        class="card"
+        (mouseenter)="showBtn()"
+        (mouseleave)="showBtn()"
+        style="width: 18rem"
+      >
+        <h4 class="product-title">
+          <!-- Alien ware Monitor T 46 -->{{ product.title }}
+        </h4>
+        <ul class="product-number">
+          <li>TYPE: {{ product.brandName }}</li>
+        </ul>
+
+        <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+
+        <div class="cat-item">
+          <ul>
+            <li>
+              <a [routerLink]="['/product', product.id]">
+                <i class="bi bi-eye-fill"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                class="heart"
+                href="javascript:;"
+                (click)="handelAddToWishList(product.id)"
+              >
+                <i class="bi bi-suit-heart-fill"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div
+            class="product-content-bottom d-flex align-items-center justify-content-between"
+          >
+            <ins class="price-item--regular"
+              ><span>{{ product.price }} </span
+              ><span class="currency-type"> EGP </span></ins
+            >
+          </div>
+          <a
+            href="javascript:;"
+            class="btnn btn-primary"
+            (click)="handleAddToCart($event, product.id)"
+            >Add to cart</a
+          >
+        </div>
+      </div>
+      <!-- card -->
+    </ng-template>
+  </owl-carousel-o>
+
+  <div class="bg-black" style="height: 250px; width: 100%"></div>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////// -->
+<div class="container sec">
+  <div class="row">
+    <div class="col-3" style="line-height: normal">
+      <h2 class="besst">Best</h2>
+      <h2 class="adresss">Pro Gaming</h2>
+      <h2 class="besst">Categories</h2>
+      <div>
+        <button class="btn btttn" (click)="isLaptop()">
+          <i class="bi bi-laptop-fill me-3"></i>
+          <span>Gaming Laptops</span>
+        </button>
+      </div>
+      <div>
+        <button class="btn btttn" (click)="isMonitor()">
+          <i class="bi bi-display me-3"></i>
+          <span class="me-4">4K Monitors</span>
+        </button>
+      </div>
+      <div>
+        <button class="btn btttn" (click)="isGamingchair()">
+          <i class="bi bi-unity me-3"></i>
+          <span class="me-4">Gaming Chaires</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-9" *ngIf="Catid == 0">
+      <owl-carousel-o [options]="customOptions" class="bannner">
+        <ng-template *ngFor="let product of products" carouselSlide>
+          <!-- card -->
+          <div
+            class="card"
+            (mouseenter)="showBtn()"
+            (mouseleave)="showBtn()"
+            style="width: 18rem"
+          >
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
+            <ul class="product-number">
+              <li>TYPE: {{ product.brandName }}</li>
+            </ul>
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+
+            <div class="cat-item">
+              <ul>
+                <li>
+                  <a [routerLink]="['/product', product.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    class="heart"
+                    (click)="handelAddToWishList(product.id)"
+                  >
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div
+                class="product-content-bottom d-flex align-items-center justify-content-between"
+              >
+                <ins class="price-item--regular"
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
+                >
+              </div>
+              <a
+                href="javascript:;"
+                (click)="handleAddToCart($event, product.id)"
+                class="btnn btn-primary"
+                >Add to cart</a
+              >
+            </div>
+          </div>
+
+          <!-- card -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!--
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////// -->
+    <div class="col-9" *ngIf="Catid != 0">
+      <owl-carousel-o [options]="customOptions" class="bannner">
+        <ng-template *ngFor="let product of productsByCat" carouselSlide>
+          <!-- card -->
+          <div
+            class="card"
+            (mouseenter)="showBtn()"
+            (mouseleave)="showBtn()"
+            style="width: 18rem"
+          >
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
+            <ul class="product-number">
+              <li>TYPE: {{ product.brandName }}</li>
+            </ul>
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+            <div class="cat-item">
+              <ul>
+                <li>
+                  <a [routerLink]="['/product', product.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="heart">
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div
+                class="product-content-bottom d-flex align-items-center justify-content-between"
+              >
+                <ins class="price-item--regular"
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
+                >
+              </div>
+              <a
+                href="javascript:;"
+                (click)="handleAddToCart($event, product.id)"
+                class="btnn btn-primary"
+                >Add to cart</a
+              >
+            </div>
+          </div>
+
+          <!-- card -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!--
+        ////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////// -->
+    <div class="col-9" *ngIf="Catid == 0">
+      <owl-carousel-o [options]="customOptions" class="bannner">
+        <ng-template *ngFor="let product of productsByCat" carouselSlide>
+          <!-- card -->
+          <div
+            class="card"
+            (mouseenter)="showBtn()"
+            (mouseleave)="showBtn()"
+            style="width: 18rem"
+          >
+            <h4 class="product-title">
+              <!-- Alien ware Monitor T 46 -->{{ product.title }}
+            </h4>
+            <ul class="product-number">
+              <li>TYPE: {{ product.brandName }}</li>
+            </ul>
+            <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
+
+            <div class="cat-item">
+              <ul>
+                <li>
+                  <a [routerLink]="['/product', product.id]">
+                    <i class="bi bi-eye-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="heart">
+                    <i class="bi bi-suit-heart-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div
+                class="product-content-bottom d-flex align-items-center justify-content-between"
+              >
+                <ins class="price-item--regular"
+                  ><span class="text-black">{{ product.price }} </span
+                  ><span class="currency-type text-black"> EGP </span></ins
+                >
+              </div>
+              <a
+                href="javascript:;"
+                (click)="handleAddToCart($event, product.id)"
+                class="btnn btn-primary"
+                >Add to cart</a
+              >
+            </div>
+          </div>
+
+          <!-- card -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////// -->
+    <div style="height: 0.5px">
+      <img
+        src="//gaming-workdo.myshopify.com/cdn/shop/files/design-circle-3.png?v=1671514613"
+        alt=""
+        style="position: relative; top: -555px; left: 986px"
+      />
+      <img
+        src="//gaming-workdo.myshopify.com/cdn/shop/files/main-conent-games.png?v=1671440689"
+        alt=""
+        style="position: relative; top: -662px; left: 831px"
+      />
+    </div>
+  </div>
+</div>
+<app-home></app-home>

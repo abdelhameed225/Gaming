@@ -1,0 +1,26 @@
+footer{
+padding: 0;
+object-fit: cover;
+
+}
+a{
+    text-decoration: none;
+}
+.img1{
+position: relative;
+top: -4px;
+  left: 1355px;
+  z-index: 3;
+}
+.img2{
+position: relative;
+top: 40px;
+  left: -341px;
+  z-index: 3;
+}
+.mind{
+    color: transparent;
+    background-image: linear-gradient(250deg, #7b35c8 0%, #0098ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}

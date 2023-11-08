@@ -1,0 +1,141 @@
+<app-navbar-login></app-navbar-login>
+
+<div class="padding-top padding-bottom dark-contnt">
+  <div class="container wishpg">
+    <div class="mainwish">
+      <div class="section-title text-center mt-5">
+        <h3 class="p-5">
+          <span class="p-3">Wishlist</span>
+          <span>
+            <!-- <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="red"
+                class="bi bi-balloon-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2.376 2.376 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386Z"
+                />
+              </svg> -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="red"
+              class="bi bi-chat-square-heart-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"
+              />
+            </svg>
+          </span>
+        </h3>
+      </div>
+      <div
+        class="row main-wishlist"
+        style="display: flex !important; flex-direction: row"
+      >
+        <!-- <div
+          class="cart col-lg-3 col-sm-4 col-12"
+          data-product-handle="electrobot-xtreme-gaming-series-pc"
+        > -->
+        <!-- card -->
+        <div
+          class="card col-4 ms-auto me-auto"
+          style="width: 18rem"
+          *ngFor="let wishListItem of wishListItems"
+        >
+          <h4 class="product-title text-black">
+            <!-- Alien ware Monitor T 46 -->
+            {{ wishListItem.product.title }}
+          </h4>
+          <!-- <ul class="product-number">
+              <li>
+                Description:
+                {{ wishListItem.product.description }}
+              </li>
+            </ul> -->
+
+          <img
+            src="{{ wishListItem.product.imgUrl }}"
+            class="card-img-top"
+            alt="..."
+          />
+
+          <div class="cat-item">
+            <ul>
+              <li>
+                <a [routerLink]="['/product', wishListItem.product.id]">
+                  >
+                  <i class="bi bi-eye-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a class="heart">
+                  <i class="bi bi-suit-heart-fill"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div
+              class="product-content-bottom d-flex align-items-center justify-content-between"
+            >
+              <ins class="price-item--regular"
+                ><span class="text-black">
+                  {{ wishListItem.product.price }} </span
+                ><span class="currency-type text-black"> EGP </span></ins
+              >
+            </div>
+            <a
+              href="javascript:;"
+              class="btnn btn-primary m-1"
+              (click)="handleDelete(wishListItem.id)"
+            >
+              <svg
+                width="28"
+                height="28"
+                fill="#F20065 !important"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+                role="presentation"
+                class="icon icon-remove"
+              >
+                <path
+                  d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5a.5.5 0 00.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z"
+                  fill="#F20065"
+                ></path>
+                <path
+                  d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z"
+                  fill="#F20065"
+                ></path>
+              </svg>
+              Remove Item </a
+            ><a
+              href="javascript:;"
+              class="btnn btn-primary"
+              style="left: 17% !important"
+              >Add to Cart
+            </a>
+          </div>
+        </div>
+
+           <!-- card -->
+      </div>
+    </div>
+  </div>
+  <div class="wishempty text-center" style="display: none">
+    <h3>Your wishlist is currently empty!</h3>
+  </div>
+  <div class="wishloader" style="display: none">
+    <p>Loading...</p>
+  </div>
+</div>
+<!-- </div> -->
+<app-footer></app-footer>

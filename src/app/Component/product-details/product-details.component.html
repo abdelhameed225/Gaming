@@ -104,21 +104,54 @@
                 Brand
               </button>
             </h2>
-            <div class="form-check ms-4 mb-3 mt-3" *ngFor="let brand of brands">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="radio1"
-                name="optradio"
-                value="{{ brand.name }}"
-                (change)="handleCheckBrand($event, brand.name)"
-              />
-              <label
-                class="form-check-label"
-                style="font-size: 17px"
-                for="radio1"
-                >{{ brand.name }}</label
-              >
+            <div
+              id="panelsStayOpen-collapseOne"
+              class="accordion-collapse collapse show"
+            >
+              <div class="accordion-body">
+                <!-- ////////////////////////////////// -->
+                <div class="form-check ms-4 mt-3">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="radio1"
+                    name="optradio"
+                    value="All"
+                    (change)="handleCheckBrand($event, 'all')"
+                  />
+                  <label
+                    class="form-check-label"
+                    style="font-size: 17px"
+                    for="radio1"
+                    >All products</label
+                  >
+                </div>
+                <!-- ////////////////////////////////////////////// -->
+                <div
+                  class="form-check ms-4 mb-3 mt-3"
+                  *ngFor="let Brand of brands"
+                >
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="radio1"
+                    name="optradio"
+                    value="{{ Brand.name }}"
+                    (change)="handleCheckBrand($event, Brand.name)"
+                  />
+                  <label
+                    class="form-check-label"
+                    style="font-size: 17px"
+                    for="radio1"
+                    >{{ Brand.name }}</label
+                  >
+                </div>
+
+                <br />
+                <!-- /////////////////////////////////// -->
+
+                <!-- /////////////////////////////////// -->
+              </div>
             </div>
             <div
               id="panelsStayOpen-collapseTwo"

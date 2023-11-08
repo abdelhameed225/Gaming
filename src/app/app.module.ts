@@ -31,6 +31,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { OrdersummaryComponent } from './Component/ordersummary/ordersummary.component';
 
 @NgModule({
   imports: [SwiperModule],
@@ -61,6 +62,7 @@ export class YourAppModule {}
     AdminProductComponent,
     AdminCategoryComponent,
     AddnewProductComponent,
+    OrdersummaryComponent,
   ],
   imports: [
     CommonModule,

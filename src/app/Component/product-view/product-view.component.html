@@ -40,7 +40,12 @@
         >
           <div class="pro-top-row">
             <span class="slide-label">{{ product.brandName }}</span>
-            <a class="wishbtn wishlist-btn" href="#" title="Wishlist">
+            <a
+              class="wishbtn wishlist-btn"
+              title="Wishlist"
+              href="javascript:;"
+              (click)="handelAddToWishList(product.id)"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -287,6 +292,7 @@
                 value="✓"
               /><input type="hidden" name="id" value="44216381473089" />
               <button
+              (click)="handleAddToCart($event, product.id)"
                 type="submit"
                 name="add"
                 class="btn-primary add-cart-btn product-form__submit"

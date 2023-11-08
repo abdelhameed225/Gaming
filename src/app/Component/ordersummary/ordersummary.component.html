@@ -1,0 +1,467 @@
+<app-navbar-login></app-navbar-login>
+
+<main
+  id="MainContent"
+  class="content-for-layout wrapper"
+  role="main"
+  tabindex="-1"
+  style="margin-top: 139.8px"
+>
+  <section class="cart-page-section padding-bottom">
+    <div class="container">
+      <div class="section-title main">
+        <a href="#" class="back-btn">
+          <span class="svg-ic">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="5"
+              viewBox="0 0 11 5"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z"
+                fill="white"
+              ></path>
+            </svg>
+          </span>
+          Continue shopping
+        </a>
+        <h2>Order Summary</h2>
+      </div>
+      <form [formGroup]="OrderForm" (submit)="checkoutOrder($event)">
+        <input type="hidden" name="form_type" value="create_customer" />
+        <input type="hidden" name="utf8" value="✓" />
+        <div class="form-container">
+          <div class="form-heading">
+            <h4>Your Adress Details</h4>
+          </div>
+        </div>
+        <div class="form-container">
+          <div class="row">
+            <div class="col-md-4 col-12">
+              <div class="form-group field">
+                <label>Street<sup aria-hidden="true">*</sup>:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="Street"
+                  id="Street"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  formControlName="Street"
+                  autocomplete="text"
+                  aria-required="true"
+                  placeholder="Street"
+                />
+                <ng-container *ngIf="getStreet.touched">
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getStreet.hasError('required')"
+                  >
+                    Street name required
+                  </div>
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getStreet.hasError('minlength')"
+                  >
+                    Street Name should be more than 5 letters
+                  </div>
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getStreet.hasError('maxlength')"
+                  >
+                    Street Name should be less than 15 letters
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group field">
+                <label>BulidingNumber<sup aria-hidden="true">*</sup>:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="BulidingNumber"
+                  id="BulidingNumber"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  formControlName="BulidingNumber"
+                  autocomplete="BulidingNumber"
+                  aria-required="true"
+                  placeholder="BulidingNumber"
+                />
+                <ng-container *ngIf="getBulidingNumber.touched">
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getBulidingNumber.hasError('required')"
+                  >
+                    Buliding Number is Required
+                  </div>
+
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="getBulidingNumber.hasError('maxlength')"
+                  >
+                    Street Name should be less than 15 letters
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-4 col-12">
+              <div class="form-group field">
+                <label>PostalCode<sup aria-hidden="true">*</sup>:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="PostalCode"
+                  id="PostalCode"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  formControlName="PostalCode"
+                  autocomplete="PostalCode"
+                  aria-required="true"
+                  placeholder="PostalCode"
+                />
+                <div class="row flex">
+                  <ng-container *ngIf="getPostalCode.touched">
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="getPostalCode.hasError('required')"
+                    >
+                      Postal Code name required
+                    </div>
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="getPostalCode.hasError('minlength')"
+                    >
+                      Postal Code should be more than 5 numbers
+                    </div>
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="getPostalCode.hasError('maxlength')"
+                    >
+                      Postal Code should be less than 8 numbers
+                    </div>
+                  </ng-container>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group field">
+                      <label>City<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="City"
+                        id="City"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="given-name"
+                        aria-required="true"
+                        formControlName="City"
+                        placeholder="City"
+                      />
+                      <ng-container *ngIf="getCity.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('required')"
+                        >
+                          City name required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('minlength')"
+                        >
+                          City name must be more than 4 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getCity.hasError('maxlength')"
+                        >
+                          City name must be less than 10 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group field">
+                    <label>PhoneNumber<sup aria-hidden="true">*</sup>:</label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      formControlName="PhoneNumber"
+                      name="PhoneNumber"
+                      id="PhoneNumber"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      autocomplete="Phone"
+                      aria-required="true"
+                      placeholder="PhoneNumber"
+                    />
+                    <ng-container *ngIf="getPhoneNumber.touched">
+                      <div
+                        class="form-text text-danger"
+                        *ngIf="getPhoneNumber.hasError('required')"
+                      >
+                        PhoneNumber is required
+                      </div>
+                      <div
+                        class="form-text text-danger"
+                        *ngIf="getPhoneNumber.hasError('pattern')"
+                      >
+                        Invalid phone number format. Please enter a 11-digit
+                        number.
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ====== -->
+        <button
+          type="submit"
+          id="checkout"
+          class="cart__checkout-button btn"
+          name="checkout"
+          form="cart"
+        >
+          Complete Order
+        </button>
+        <!-- ====== -->
+      </form>
+      <div class="row">
+        <div
+          id="shopify-section-template--20318990336321__cart-items"
+          class="shopify-section cart__items-wrapper col-lg-9 col-12"
+        >
+          <div class="">
+            <form
+              action="#"
+              class="cart__contents critical-hidden"
+              method="post"
+              id="cart"
+            >
+              <div
+                id="main-cart-items"
+                data-id="template--20318990336321__cart-items"
+                class=""
+              >
+                <div class="js-contents order-historycontent">
+                  <table class="cart-tble">
+                    <thead>
+                      <tr>
+                        <th colspan="1" scope="col">IMAGE</th>
+                        <th colspan="1" scope="col">NAME</th>
+                        <th colspan="1" scope="col">PRICE</th>
+                        <th colspan="1" scope="col">QUANTITY</th>
+                        <th colspan="1" scope="col">TOTAL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let cartItem of cartItems"
+                        class="cart-item"
+                        id="CartItem-1"
+                      >
+                        <td class="cart-item__media" data-label="Product">
+                          <a href="#">
+                            <img src="{{ cartItem.product.imgUrl }}" />
+                          </a>
+                        </td>
+                        <td data-label="Name">
+                          <a href="#" class="cart-item__name">{{
+                            cartItem.product.title
+                          }}</a>
+
+                          <p class="product-option"></p>
+                          <ul
+                            class="discounts list-unstyled"
+                            role="list"
+                            aria-label="Discount"
+                          ></ul>
+                        </td>
+                        <td data-label="cart-price">
+                          {{ cartItem.product.price }}
+                          <span class="currency-type">EGP</span>
+                        </td>
+                        <td class="cart-item__quantity" data-label="quantity">
+                          <div class="cart-item__quantity-wrapper">
+                            <label class="visually-hidden" for="Quantity-1"
+                              >Quantity</label
+                            >
+                            <div class="">
+                              {{ cartItem.amount }}
+                            </div>
+                          </div>
+                          <div
+                            class="cart-item__error"
+                            id="Line-item-error-1"
+                            role="alert"
+                          >
+                            <small class="cart-item__error-text"></small>
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              role="presentation"
+                              class="icon icon-error"
+                              viewBox="0 0 13 13"
+                            >
+                              <circle
+                                cx="6.5"
+                                cy="6.50049"
+                                r="5.5"
+                                stroke="white"
+                                stroke-width="2"
+                              ></circle>
+                              <circle
+                                cx="6.5"
+                                cy="6.5"
+                                r="5.5"
+                                fill="#EB001B"
+                                stroke="#EB001B"
+                                stroke-width="0.7"
+                              ></circle>
+                              <path
+                                d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z"
+                                fill="white"
+                              ></path>
+                              <path
+                                d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+                                fill="white"
+                                stroke="#EB001B"
+                                stroke-width="0.7"
+                              ></path>
+                            </svg>
+                          </div>
+                        </td>
+                        <td class="cart-item__totals right" data-label="Total">
+                          <div class="loading-overlay hidden">
+                            <div class="loading-overlay__spinner">
+                              <svg
+                                aria-hidden="true"
+                                focusable="false"
+                                role="presentation"
+                                class="spinner"
+                                viewBox="0 0 66 66"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  class="path"
+                                  fill="none"
+                                  stroke-width="6"
+                                  cx="33"
+                                  cy="33"
+                                  r="30"
+                                ></circle>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="cart-item__price-wrapper">
+                            <span class="price--end">
+                              {{ cartItem.product.price * cartItem.amount }}
+                              <span class="currency-type">EGP</span>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p
+                class="visually-hidden"
+                id="cart-live-region-text"
+                aria-live="polite"
+                role="status"
+                aria-hidden="true"
+              >
+                New subtotal:
+                {{ subtotal }}
+                <span class="currency-type">EGP</span>
+              </p>
+              <p
+                class="visually-hidden"
+                id="shopping-cart-line-item-status"
+                aria-live="polite"
+                aria-hidden="true"
+                role="status"
+              >
+                Loading...
+              </p>
+            </form>
+          </div>
+          <div class="cart__warnings is-empty">
+            <div class="section-title">
+              <h3>Yourcart is empty</h3>
+            </div>
+            <a href="#" class="common-btn2"> Continue shopping</a>
+          </div>
+        </div>
+        <div
+          id="shopify-section-template--20318990336321__cart-footer"
+          class="shopify-section cart__footer-wrapper col-lg-3 col-12"
+        >
+          <div
+            class=""
+            id="main-cart-footer"
+            data-id="template--20318990336321__cart-footer"
+          >
+            <div class="cart__footer">
+              <div class="cart__note field">
+                <label for="Cart-note">Order special instructions</label>
+                <textarea
+                  class="text-area text-area--resize-vertical field__input form-control mb-4 mt-2"
+                  name="note"
+                  form="cart"
+                  id="Cart-note"
+                  placeholder="Order special instructions"
+                ></textarea>
+              </div>
+              <div class="cart__blocks">
+                <div class="js-contents">
+                  <div class="totals">
+                    <h3 class="totals__subtotal">Subtotal</h3>
+                    <p class="totals__subtotal-value">
+                      {{ subtotal }}
+                      <span class="currency-type">EGP</span>
+                    </p>
+                  </div>
+                  <div></div>
+                  <small class="tax-note caption-large rte"
+                    >Taxes and shipping calculated at checkout
+                  </small>
+                </div>
+                <div class="cart__ctas">
+                  <noscript>
+                    <button
+                      type="submit"
+                      class="cart__update-button button button-primary"
+                      form="cart"
+                    >
+                      Update
+                    </button>
+                  </noscript>
+                  <!-- <button
+                    type="submit"
+                    id="checkout"
+                    class="cart__checkout-button btn"
+                    name="checkout"
+                    form="cart"
+                  >
+                    Complete Order
+                  </button> -->
+                </div>
+                <div id="cart-errors"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!-- -->
+</main>

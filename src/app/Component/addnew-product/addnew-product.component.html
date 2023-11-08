@@ -316,7 +316,7 @@
                     <button
                       class="btn submit-btn"
                       type="submit"
-                      (click)="Add()"
+                      (click)="productId > 0 ? Edit() : Add()"
                     >
                       {{ productId > 0 ? "Edit" : "Add" }}
                       <svg

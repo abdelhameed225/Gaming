@@ -74,7 +74,10 @@
             >
               <div class="row align-items-center row-reverse">
                 <div class="col-lg-4 col-12">
-                  <button class="btn submit-btn" (click)="add()">
+                  <button
+                    class="btn submit-btn"
+                    (click)="CatId > 0 ? add() : add()"
+                  >
                     {{ CatId > 0 ? "Edit" : "Add" }}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

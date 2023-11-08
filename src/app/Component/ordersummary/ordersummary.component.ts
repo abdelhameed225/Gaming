@@ -18,11 +18,29 @@ export class OrdersummaryComponent implements OnInit {
     private toastr: ToastrService,
     private _CartService: CartService,
     private _OrderService: OrderService
-  ) {}
+  ) {
+    _AuthService.user.subscribe({
+      next: () => {
+        const user = _AuthService.user.getValue();
+        console.log('user', user);
+        if (user !== null) {
+          this.isLogin = true;
+          this.userData = user;
+        } else {
+          this.isLogin = false;
+
+          this.userData = null;
+        }
+      },
+    });
+  }
 
   cartItems: any = [];
   isLoading: boolean = false;
   subtotal: number = 0;
+  isLogin: boolean = false;
+  userData: any = null;
+
   loadCart() {
     this.cartItems = this._CartService.getCart().subscribe({
       next: (response) => {
@@ -42,6 +60,14 @@ export class OrdersummaryComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loadCart();
+    const user = this._AuthService.user.getValue();
+    console.log('user', user);
+    this.OrderForm.get('Government')?.setValue(user.user.government);
+    this.OrderForm.get('BulidingNumber')?.setValue(user.user.bulidingNumber);
+    this.OrderForm.get('City')?.setValue(user.user.city);
+    this.OrderForm.get('Street')?.setValue(user.user.street);
+    this.OrderForm.get('PostalCode')?.setValue(user.user.postalCode);
+    this.OrderForm.get('PhoneNumber')?.setValue(user.user.phoneNumber);
   }
   OrderForm = new FormGroup({
     City: new FormControl('', [
@@ -95,8 +121,7 @@ export class OrdersummaryComponent implements OnInit {
 
   checkoutOrder(e: Event) {
     e.preventDefault();
-    // console.log(this.OrderForm);
-
+    console.log(this.OrderForm);
     if (this.OrderForm.status == 'VALID') {
       this._OrderService.createOrder(this.OrderForm.value).subscribe({
         next: (response) => {
@@ -104,7 +129,7 @@ export class OrdersummaryComponent implements OnInit {
 
           this.isLoading = false;
           this.toastr.success('Order Created Sussccefully', 'Success');
-          this._Router.navigate(['/login']);
+          this._Router.navigate(['/']);
         },
         error: (error) => {
           this.toastr.error(JSON.parse(error.error), 'Failed to Make Order');

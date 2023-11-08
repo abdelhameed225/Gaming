@@ -36,7 +36,7 @@
         <input type="hidden" name="utf8" value="✓" />
         <div class="form-container">
           <div class="form-heading">
-            <h4>Your Adress Details</h4>
+            <h4>Your Address Details</h4>
           </div>
         </div>
         <div class="form-container">
@@ -148,6 +148,41 @@
                   </ng-container>
                   <div class="col-md-4 col-12">
                     <div class="form-group field">
+                      <label>Government<sup aria-hidden="true">*</sup>:</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="Government"
+                        id="Government"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="text"
+                        formControlName="Government"
+                        aria-required="true"
+                        placeholder="Government"
+                      />
+                      <ng-container *ngIf="getGovernment.touched">
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('required')"
+                        >
+                          the Government Name is Required
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('minlength')"
+                        >
+                          Government name must be more than 5 letters
+                        </div>
+                        <div
+                          class="form-text text-danger"
+                          *ngIf="getGovernment.hasError('maxlength')"
+                        >
+                          Government name must be less than 10 letters
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="form-group field">
                       <label>City<sup aria-hidden="true">*</sup>:</label>
                       <input
                         class="form-control"
@@ -221,7 +256,7 @@
           </div>
         </div>
         <!-- ====== -->
-        <button
+        <!-- <button
           type="submit"
           id="checkout"
           class="cart__checkout-button btn"
@@ -229,7 +264,7 @@
           form="cart"
         >
           Complete Order
-        </button>
+        </button> -->
         <!-- ====== -->
       </form>
       <div class="row">
@@ -444,15 +479,16 @@
                       Update
                     </button>
                   </noscript>
-                  <!-- <button
+                  <button
                     type="submit"
                     id="checkout"
                     class="cart__checkout-button btn"
                     name="checkout"
                     form="cart"
+                    (click)="checkoutOrder($event)"
                   >
                     Complete Order
-                  </button> -->
+                  </button>
                 </div>
                 <div id="cart-errors"></div>
               </div>

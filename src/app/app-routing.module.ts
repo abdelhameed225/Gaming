@@ -52,7 +52,11 @@ const routes: Routes = [
   { path: 'admin', canActivate: [adminGuard], component: DashboardComponent },
   { path: 'cart', canActivate: [authGuard], component: CartComponent },
   { path: 'wishlist', canActivate: [authGuard], component: WishlistComponent },
-  { path: 'order', canActivate: [authGuard], component: OrdersummaryComponent },
+  {
+    path: 'ordersummary',
+    canActivate: [authGuard],
+    component: OrdersummaryComponent,
+  },
 ];
 
 @NgModule({

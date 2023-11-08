@@ -3,10 +3,29 @@
 <div class="container-fluid">
   <div class="row">
     <!-- ////////////////// filter ///////////////////  -->
+
     <div class="col-3">
       <section>
         <h2 style="font-weight: bold">Filter</h2>
 
+        <form class="d-flex me-auto ms-auto mb-2" role="search">
+          <input
+            [(ngModel)]="onSearchInput"
+            (input)="onSearchInput($event)"
+            class="form-control sear"
+            style="
+              border-radius: 0 20px 0 20px;
+              width: 360px;
+              margin-right: 80px;
+              background-color: transparent;
+              border-color: #676673;
+              color: #676673;
+            "
+            type="search"
+            placeholder="Search Product..."
+            aria-label="Search"
+          />
+        </form>
         <div class="accordion" id="accordionPanelsStayOpenExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -35,7 +54,7 @@
                     id="radio1"
                     name="optradio"
                     value="All"
-                    (change)="Oncheckked($event)"
+                    (change)="handleCheckCategory($event, 'all')"
                   />
                   <label
                     class="form-check-label"
@@ -55,7 +74,7 @@
                     id="radio1"
                     name="optradio"
                     value="{{ Category.name }}"
-                    (change)="Onchecked($event, Category.id)"
+                    (change)="handleCheckCategory($event, Category.name)"
                   />
                   <label
                     class="form-check-label"
@@ -64,6 +83,7 @@
                     >{{ Category.name }}</label
                   >
                 </div>
+
                 <br />
                 <!-- /////////////////////////////////// -->
 
@@ -84,6 +104,22 @@
                 Brand
               </button>
             </h2>
+            <div class="form-check ms-4 mb-3 mt-3" *ngFor="let brand of brands">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="radio1"
+                name="optradio"
+                value="{{ brand.name }}"
+                (change)="handleCheckBrand($event, brand.name)"
+              />
+              <label
+                class="form-check-label"
+                style="font-size: 17px"
+                for="radio1"
+                >{{ brand.name }}</label
+              >
+            </div>
             <div
               id="panelsStayOpen-collapseTwo"
               class="accordion-collapse collapse"
@@ -118,60 +154,11 @@
         </div>
       </section>
     </div>
-    <!-- ////////////////// filter ///////////////////  -->
 
     <div class="col-9">
-      <!-- //////////////////////// -->
-      <div class="container" *ngIf="Cattid != 0">
+      <div class="container">
         <div class="row">
-          <div class="col-3" *ngFor="let product of finalfilter">
-            <!-- card -->
-            <div class="card" style="width: 18rem">
-              <h4 class="product-title text-black">
-                <!-- Alien ware Monitor T 46 -->{{ product.title }}
-              </h4>
-              <ul class="product-number">
-                <li>TYPE: {{ product.brandName }}</li>
-              </ul>
-
-              <img src="{{ product.imgUrl }}" class="card-img-top" alt="..." />
-
-              <div class="cat-item">
-                <ul>
-                  <li>
-                    <a [routerLink]="['/product', product.id]">
-                      <i class="bi bi-eye-fill"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="heart">
-                      <i class="bi bi-suit-heart-fill"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <div
-                  class="product-content-bottom d-flex align-items-center justify-content-between"
-                >
-                  <ins class="price-item--regular"
-                    ><span class="text-black">{{ product.price }} </span
-                    ><span class="currency-type text-black"> EGP </span></ins
-                  >
-                </div>
-                <a href="#" class="btnn btn-primary">Add to cart</a>
-              </div>
-            </div>
-
-            <!-- card -->
-          </div>
-        </div>
-      </div>
-      <!-- /////////////////// -->
-
-      <div class="container" *ngIf="Cattid == 0">
-        <div class="row">
-          <div class="col-3" *ngFor="let product of products">
+          <div class="col-3" *ngFor="let product of filteredProducts">
             <!-- card -->
             <div class="card" style="width: 18rem">
               <h4 class="product-title text-black">

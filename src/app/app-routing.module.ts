@@ -14,6 +14,7 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { authGuard } from './Guards/auth/auth.guard';
 import { adminGuard } from './Guards/admin/admin.guard';
+import { WishlistComponent } from './Component/wishlist/wishlist.component';
 import { AddnewProductComponent } from './Component/addnew-product/addnew-product.component';
 import { AddNewCatComponent } from './Component/add-new-cat/add-new-cat.component';
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   },
   { path: 'admin', canActivate: [adminGuard], component: DashboardComponent },
   { path: 'cart', canActivate: [authGuard], component: CartComponent },
+  { path: 'wishlist', canActivate: [authGuard], component: WishlistComponent },
 ];
 
 @NgModule({

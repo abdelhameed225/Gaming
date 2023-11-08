@@ -125,7 +125,9 @@
           <li *ngIf="isAdmin">
             <a class="dropdown-item" [routerLink]="['/admin/']">Admin Portal</a>
           </li>
-          <li><a class="dropdown-item" href="#">Wish List</a></li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/wishlist/']">Wish List</a>
+          </li>
           <li><a class="dropdown-item" (click)="handleLogout()">Logout</a></li>
         </ul>
       </li>

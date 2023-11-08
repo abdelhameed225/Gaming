@@ -1,3 +1,4 @@
+import { WishlistService } from 'src/app/Services/WishList/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -21,7 +22,8 @@ export class FirstCompComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private _CartService: CartService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _WishlistService: WishlistService
   ) {
     _AuthService.user.subscribe({
       next: () => {
@@ -151,6 +153,17 @@ export class FirstCompComponent implements OnInit {
     },
     nav: true,
   };
+
+  handelAddToWishList(productId: any) {
+    this._WishlistService.addToWishList(productId).subscribe({
+      next: (response) => {
+        this.toastr.success('Item Added Successfully To Wish List', 'Success');
+      },
+      error: (errro) => {
+        this.toastr.error('Fail To Add Item To Wish List', 'Error');
+      },
+    });
+  }
 
   /////
   customOptions: OwlOptions = {

@@ -9,7 +9,6 @@ import { CartService } from 'src/app/Services/Cart/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any = [];
-
   isLoading: boolean = false;
   subtotal: number = 0;
   constructor(

@@ -42,22 +42,7 @@ export class NabbarComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.cartItems = this._CartService.getCart().subscribe({
-      next: (response) => {
-        this.cartItems = response;
-        this.loadCart();
-
-        this.subtotal = this.cartItems.reduce((acc: any, curr: any) => {
-          return acc + curr.product.price * curr.amount;
-        }, 0);
-        console.log('subtotal', this.subtotal);
-        // this.isLoading = false;
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    this.loadCart();
     this.categories = this.categoryService.getAllCategory().subscribe({
       next: (response) => {
         this.categories = response;

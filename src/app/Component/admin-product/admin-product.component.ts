@@ -6,88 +6,76 @@ import { ProductsService } from 'src/app/Services/product/products.service';
 @Component({
   selector: 'app-admin-product',
   templateUrl: './admin-product.component.html',
-  styleUrls: ['./admin-product.component.css']
+  styleUrls: ['./admin-product.component.css'],
 })
 export class AdminProductComponent implements OnInit {
-  constructor(public productService: ProductsService, public categoryService:CategoryService,    private toastr: ToastrService
-    ){}
+  constructor(
+    public productService: ProductsService,
+    public categoryService: CategoryService,
+    private toastr: ToastrService
+  ) {}
 
   products: any;
-    isLoading: boolean = true;
-    categories: any;
-    productsByCat: any;
-    Cattid:number=0;
-    /////////////////////////////////////////////////////
+  isLoading: boolean = true;
+  categories: any;
+  productsByCat: any;
+  Cattid: number = 0;
+  /////////////////////////////////////////////////////
 
-    ///////////////////////////////////////////
-      
+  ///////////////////////////////////////////
 
-  
-    ////////////////////////////////////////
-  
-    ngOnInit(): void {
-  
-  
-      this.products=this.productService.getAllProducts().subscribe({
-        next:(response)=>{
-          
-          this.products=response;
-          this.isLoading = false;
-          // console.log(response);
-          
-        },
-        error:(error)=>{
-          console.log(error);
-          
-        }
-       });
-  //////////////////////////////////////////////////////////////////
-  
-  this.productsByCat=this.productService.getProductByCatId(this.Cattid).subscribe({
-    next:(response)=>{
-      
-      this.productsByCat=response;
-      this.isLoading = false;
-      // console.log(response);
-      
-    },
-    error:(error)=>{
-      console.log(error);
-      
-    }
-   });
-  
-  
-  /////////////////////////////////////////////////////////////////
-       this.categories=this.categoryService.getAllCategory().subscribe({
-        next:(response)=>{
-          
-          this.categories=response;
-          this.isLoading = false;
-          // console.log(response);
-          
-        },
-        error:(error)=>{
-          console.log(error);
-          
-        }
-       });
-  
-    }
+  ////////////////////////////////////////
 
-      ///////////////////////////////
+  ngOnInit(): void {
+    this.productService.getAllProducts().subscribe({
+      next: (response) => {
+        this.products = response;
+        this.isLoading = false;
+        // console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+    //////////////////////////////////////////////////////////////////
+
+    this.productService.getProductByCatId(this.Cattid).subscribe({
+      next: (response) => {
+        this.productsByCat = response;
+        this.isLoading = false;
+        // console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+
+    /////////////////////////////////////////////////////////////////
+    this.categoryService.getAllCategory().subscribe({
+      next: (response) => {
+        this.categories = response;
+        this.isLoading = false;
+        // console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  ///////////////////////////////
   handleDelete(id: any) {
     //////////////////////////////////////////////////////
     this.productService.deleteProduct(id).subscribe({
       next: (response) => {
         this.isLoading = false;
         console.log(response);
-        this.loadTable();
+
         this.toastr.success('Item Deleted Successfully');
       },
       error: (error) => {
         console.log(error);
-        this.toastr.success('Failed to delete item');
+        this.toastr.error('Failed to delete item');
       },
       complete: () => {
         this.loadTable();
@@ -96,18 +84,15 @@ export class AdminProductComponent implements OnInit {
   }
 
   loadTable() {
-    this.products=this.productService.getAllProducts().subscribe({
-      next:(response)=>{
-        
-        this.products=response;
+    this.products = this.productService.getAllProducts().subscribe({
+      next: (response) => {
+        this.products = response;
         this.isLoading = false;
         // console.log(response);
-        
       },
-      error:(error)=>{
+      error: (error) => {
         console.log(error);
-        
-      }
-     });
+      },
+    });
   }
 }

@@ -209,7 +209,11 @@
                     </a>
                   </li>
                   <li>
-                    <a class="heart">
+                    <a
+                      class="heart"
+                      href="javascript:;"
+                      (click)="handelAddToWishList(product.id)"
+                    >
                       <i class="bi bi-suit-heart-fill"></i>
                     </a>
                   </li>
@@ -224,7 +228,12 @@
                     ><span class="currency-type text-black"> EGP </span></ins
                   >
                 </div>
-                <a href="#" class="btnn btn-primary">Add to cart</a>
+                <a
+                  href="javascript:;"
+                  (click)="handleAddToCart($event, product.id)"
+                  class="btnn btn-primary"
+                  >Add to cart</a
+                >
               </div>
             </div>
 
@@ -235,3 +244,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

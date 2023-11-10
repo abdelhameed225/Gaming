@@ -11,7 +11,7 @@ import { CategoryService } from 'src/app/Services/Category/category.service';
 export class AddNewCatComponent implements OnInit {
   link:any;
   CatId:number = 0;
-  name:any;
+  Name:any;
   category:any={};
   imgUrl:any;
 
@@ -25,7 +25,7 @@ export class AddNewCatComponent implements OnInit {
         next: (response) => {
   
           this.category = response;
-          this.name=this.category.name
+          this.Name=this.category.name
           this.link=this.category.imgUrl
           console.log(response);
       
@@ -50,18 +50,19 @@ export class AddNewCatComponent implements OnInit {
     }
   }
   newCat:any ={
-      name:'',
-      imgUrl:''
+      Name:'',
+      ImgUrl:''
   };
 add(){
   if(this.CatId==0){
-    this.newCat.name=this.name;
-    this.newCat.imgUrl=this.link;
+    this.newCat.Name=this.Name;
+    this.newCat.ImgUrl=this.link;
     console.log(this.newCat)
-    this.categoryService.addCategory(this.category).subscribe({
+    this.categoryService.addCategory(this.newCat).subscribe({
       next: (response) => {
+        this.route.navigate(['/admin/category']);
 
-        this.category = response;
+        this.newCat = response;
         console.log(response);
     
           },
@@ -76,6 +77,30 @@ add(){
 
       }
   
+}
+EditCat:any ={
+  Name:'',
+  ImgUrl:''
+};
+Edit() {
+  this.EditCat.Name=this.Name
+  this.EditCat.ImgUrl=this.link
+ 
+  console.log(this.EditCat);
+  
+
+  this.categoryService.editCategory(this.CatId,this.EditCat).subscribe({
+    next: (response) => {
+
+      this.route.navigate(['/admin/category']);
+      console.log(response);
+
+    },
+    error: (error) => {
+      console.log(error);
+
+    }
+  });
 }
 
 }

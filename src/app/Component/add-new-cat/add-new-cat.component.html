@@ -37,7 +37,7 @@
             </a>
           </div>
           <div class="section-title text-center">
-            <h2>Add New Category</h2>
+            <h2>{{ CatId > 0 ? "Edit Category" : " Add New Category" }}</h2>
           </div>
           <div class="form-wrapper register-form">
             <input type="hidden" name="form_type" value="create_Product" />
@@ -55,7 +55,7 @@
                     <input
                       class="form-control"
                       type="text"
-                      [(ngModel)]="name"
+                      [(ngModel)]="Name"
                       name="title"
                       id="title"
                       autocomplete="given-name"
@@ -76,7 +76,7 @@
                 <div class="col-lg-4 col-12">
                   <button
                     class="btn submit-btn"
-                    (click)="CatId > 0 ? add() : add()"
+                    (click)="CatId > 0 ? Edit() : add()"
                   >
                     {{ CatId > 0 ? "Edit" : "Add" }}
                     <svg

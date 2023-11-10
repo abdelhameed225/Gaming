@@ -12,7 +12,7 @@
   />
   <div class="container">
     <div class="section-title-inner">
-      <a href="javascript:history.go(-1)" class="back-btn">
+      <a [routerLink]="['/products']" class="back-btn">
         <span class="svg-ic">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@
             ></path>
           </svg>
         </span>
-        Back to category
+        Back to Products
       </a>
     </div>
     <div class="row">
@@ -292,7 +292,7 @@
                 value="✓"
               /><input type="hidden" name="id" value="44216381473089" />
               <button
-              (click)="handleAddToCart($event, product.id)"
+                (click)="handleAddToCart($event, product.id)"
                 type="submit"
                 name="add"
                 class="btn-primary add-cart-btn product-form__submit"
@@ -472,3 +472,4 @@
     </div>
   </div>
 </section>
+<app-footer></app-footer>

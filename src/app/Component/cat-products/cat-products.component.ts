@@ -79,4 +79,14 @@ export class CatProductsComponent implements OnInit {
       this._Router.navigate(['/login']);
     }
   }
+handelAddToWishList(productId: any) {
+  this._WishlistService.addToWishList(productId).subscribe({
+    next: (response) => {
+      this.toastr.success('Item Added Successfully To Wish List', 'Success');
+    },
+    error: (errro) => {
+      this.toastr.error('Fail To Add Item To Wish List', 'Error');
+    },
+  });
+}
 }

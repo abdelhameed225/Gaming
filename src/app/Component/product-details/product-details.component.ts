@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { BrandService } from 'src/app/Services/Brand/brand.service';
+import { CartService } from 'src/app/Services/Cart/cart.service';
 import { CategoryService } from 'src/app/Services/Category/category.service';
+import { WishlistService } from 'src/app/Services/WishList/wishlist.service';
 import { ProductsService } from 'src/app/Services/product/products.service';
 
 @Component({
@@ -9,11 +14,36 @@ import { ProductsService } from 'src/app/Services/product/products.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
+  isLogin: boolean = false;
+  userData: any = null;
+  isAdmin: boolean = false;
   constructor(
     public productService: ProductsService,
     public categoryService: CategoryService,
-    public brandsService: BrandService
-  ) {}
+    public brandsService: BrandService,
+    private _AuthService: AuthService,
+    private _Router: Router,
+    private _CartService: CartService,
+    private toastr: ToastrService,
+    private _WishlistService: WishlistService
+  ) {
+    _AuthService.user.subscribe({
+      next: () => {
+        const user = _AuthService.user.getValue();
+        console.log('user', user);
+        if (user !== null) {
+          this.isLogin = true;
+          this.userData = user;
+          this.isAdmin = user.roles.includes('Admin');
+          console.log('isAdmin', this.isAdmin);
+        } else {
+          this.isLogin = false;
+          this.isAdmin = false;
+          this.userData = null;
+        }
+      },
+    });
+  }
 
   products: any = [];
   filteredProducts: any = [];
@@ -135,4 +165,31 @@ export class ProductDetailsComponent implements OnInit {
     this.searchValue = event.target.value;
     this.filterProducts();
   }
+  handleAddToCart(event: any, id: any) {
+    event.preventDefault();
+    if (this.isLogin) {
+      console.log('test');
+      this._CartService.addToCart(id).subscribe({
+        next: (response) => {
+          this.toastr.success('Item added to cart successfully');
+          console.log('done', response);
+        },
+        error: (error) => {
+          console.log('error', error);
+        },
+      });
+    } else {
+      this._Router.navigate(['/login']);
+    }
+  }
+handelAddToWishList(productId: any) {
+  this._WishlistService.addToWishList(productId).subscribe({
+    next: (response) => {
+      this.toastr.success('Item Added Successfully To Wish List', 'Success');
+    },
+    error: (errro) => {
+      this.toastr.error('Fail To Add Item To Wish List', 'Error');
+    },
+  });
+}
 }

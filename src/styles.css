@@ -206,7 +206,7 @@ button.toast-close-button {
   margin: 0 0 6px;
   padding: 15px 15px 15px 50px;
   width: 300px;
-  border-radius: 3px 3px 3px 3px;
+  border-radius: 0px 20px 0px 20px !important;
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 24px;
@@ -251,7 +251,9 @@ button.toast-close-button {
   pointer-events: auto;
 }
 .toast-success {
-  background-color: #51a351;
+  /* background-color: #51a351; */
+  background: linear-gradient(250deg, #0098ff 0%, #7b35c8 100%) !important;
+
 }
 .toast-error {
   background-color: #bd362f;

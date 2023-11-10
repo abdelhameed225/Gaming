@@ -22,8 +22,8 @@ export class CategoryService {
     return this.http.post(this.baseUrl,category);
     
   }
-  editCategory(category:any) {
-    return this.http.put(this.baseUrl,category);
+  editCategory(catId:number,category:any) {
+    return this.http.put(`${this.baseUrl}/${catId}`,category);
     
   }
   deleteCategory(categoryId:number) {

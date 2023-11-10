@@ -37,10 +37,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { OrdersummaryComponent } from './Component/ordersummary/ordersummary.component';
 import { AddNewCatComponent } from './Component/add-new-cat/add-new-cat.component';
+import { LoadingScreenComponent } from './Component/loading-screen/loading-screen.component';
 
 @NgModule({
   imports: [SwiperModule],
-  declarations: [],
+  declarations: [
+  ],
 })
 export class YourAppModule {}
 
@@ -69,6 +71,8 @@ export class YourAppModule {}
     AddnewProductComponent,
     OrdersummaryComponent,
     AddNewCatComponent,
+    LoadingScreenComponent,
+
   ],
   imports: [
     CommonModule,

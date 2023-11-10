@@ -18,6 +18,7 @@ import { WishlistComponent } from './Component/wishlist/wishlist.component';
 import { AddnewProductComponent } from './Component/addnew-product/addnew-product.component';
 import { OrdersummaryComponent } from './Component/ordersummary/ordersummary.component';
 import { AddNewCatComponent } from './Component/add-new-cat/add-new-cat.component';
+import { LoadingScreenComponent } from './Component/loading-screen/loading-screen.component';
 
 const routes: Routes = [
   { path: 'Home', component: FirstCompComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'categories/:id', component: CatProductsComponent },
   { path: 'product/:id', component: ProductViewComponent },
+  { path: 'loading', component: LoadingScreenComponent },
   {
     path: 'admin/product',
     canActivate: [adminGuard],

@@ -9,7 +9,7 @@ import { CartService } from 'src/app/Services/Cart/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any = [];
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   subtotal: number = 0;
   constructor(
     private _CartService: CartService,
@@ -20,7 +20,6 @@ export class CartComponent implements OnInit {
     //////////////////////////////////////////////////////
     this._CartService.deleteCartItem(id).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
         this.loadCart();
         this.toastr.success('Item Deleted Successfully');
@@ -44,7 +43,6 @@ export class CartComponent implements OnInit {
           return acc + curr.product.price * curr.amount;
         }, 0);
         console.log('subtotal', this.subtotal);
-        this.isLoading = false;
         console.log(response);
       },
       error: (error) => {
@@ -55,7 +53,6 @@ export class CartComponent implements OnInit {
   increse(id: any) {
     this._CartService.increaseCartItem(id).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
         this.loadCart();
       },
@@ -70,7 +67,6 @@ export class CartComponent implements OnInit {
   decrese(id: any) {
     this._CartService.decreaseCartItem(id).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
         this.loadCart();
       },
@@ -84,6 +80,13 @@ export class CartComponent implements OnInit {
   }
   //////////////////////
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800);
     this.loadCart();
+    
   }
+  
 }

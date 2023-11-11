@@ -1,3 +1,4 @@
+import { BrandService } from './../../Services/Brand/brand.service';
 import { WishlistService } from 'src/app/Services/WishList/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,8 +18,10 @@ export class FirstCompComponent implements OnInit {
   isLogin: boolean = false;
   userData: any = null;
   isAdmin: boolean = false;
+  brands:any;
   constructor(
     public productService: ProductsService,
+    public BrandService:BrandService,
     private _AuthService: AuthService,
     private _Router: Router,
     private _CartService: CartService,
@@ -85,7 +88,6 @@ export class FirstCompComponent implements OnInit {
       this.productService.getProductByCatId(this.Catid).subscribe({
         next: (response) => {
           this.productsByCat = response;
-          this.isLoading = false;
           console.log(response);
         },
         error: (error) => {
@@ -96,16 +98,28 @@ export class FirstCompComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts().subscribe({
+    this.brands=this.BrandService.getAllBrands().subscribe({
       next: (response) => {
-        this.products = response;
-        this.isLoading = false;
+        this.brands = response;
         console.log(response);
       },
       error: (error) => {
         console.log(error);
       },
     });
+    
+    this.products = this.productService.getAllProducts().subscribe({
+      next: (response) => {
+        this.products = response;
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800);
 
     /////////////////////////////////////////
     this.productsByCat = this.productService
@@ -113,7 +127,6 @@ export class FirstCompComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.productsByCat = response;
-          this.isLoading = false;
           console.log(response);
         },
         error: (error) => {

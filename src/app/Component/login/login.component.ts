@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
@@ -10,12 +10,18 @@ import { AuthService } from 'src/app/Services/Auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService
   ) {}
+  isLoading : boolean = true;
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800);  }
   LoginForm = new FormGroup({
     UserName: new FormControl('', [
       Validators.required,
@@ -33,7 +39,6 @@ export class LoginComponent {
   get getPassword() {
     return this.LoginForm.controls['Password'];
   }
-  isLoading: boolean = false;
 
   Login(e: Event) {
     e.preventDefault();
@@ -44,7 +49,6 @@ export class LoginComponent {
         next: (response) => {
           this._AuthService.setUserData(response);
 
-          this.isLoading = false;
           this._Router.navigate(['/Home']);
         },
         error: (error) => {

@@ -112,11 +112,14 @@ export class ProductDetailsComponent implements OnInit {
   ////////////////////////////////////////
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.products = this.productService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response;
         this.filteredProducts = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {
@@ -129,7 +132,6 @@ export class ProductDetailsComponent implements OnInit {
     this.categoryService.getAllCategory().subscribe({
       next: (response) => {
         this.categories = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {
@@ -139,7 +141,6 @@ export class ProductDetailsComponent implements OnInit {
     this.brandsService.getAllBrands().subscribe({
       next: (response) => {
         this.brands = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {

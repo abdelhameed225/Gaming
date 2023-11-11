@@ -43,11 +43,14 @@ imgUrl:any;
 
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.categories = this.categoryService.getAllCategory().subscribe({
       next: (response) => {
 
         this.categories = response;
-        this.isLoading = false;
         console.log(response);
         console.log('hi i am a category');
 
@@ -64,7 +67,6 @@ imgUrl:any;
       next: (response) => {
 
         this.brands = response;
-        this.isLoading = false;
         console.log(response);
         console.log('hi i am a brand');
 
@@ -100,7 +102,6 @@ imgUrl:any;
 
                 ////////////////////////////////////
               this.imgUrl=this.link= this.product.imgUrl
-              this.isLoading = false;
               console.log(response);
       
             },

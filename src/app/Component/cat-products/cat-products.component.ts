@@ -48,11 +48,14 @@ export class CatProductsComponent implements OnInit {
 
   isLoading:boolean = true;
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.products=this.productService.getProductByCatId(this.Catid).subscribe({
       next:(response)=>{
         
         this.products=response;
-        this.isLoading = false;
         console.log(response);
         
       },

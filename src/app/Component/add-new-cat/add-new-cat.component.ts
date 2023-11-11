@@ -19,6 +19,7 @@ export class AddNewCatComponent implements OnInit {
     this.CatId=this.activated.snapshot.params['id']
   }
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     if(this.CatId!=0){
 
       this.category = this.categoryService.getCategoryById(this.CatId).subscribe({

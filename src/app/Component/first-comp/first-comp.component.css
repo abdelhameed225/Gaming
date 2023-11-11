@@ -549,4 +549,10 @@ position: relative;
 
 
 /* //////////////---------------------------------------------------------------/////////////////// */
-
+.brands{
+    color: transparent;
+    background-image: linear-gradient(to left,#7b35c8  40%, #0098ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: bold;
+}

@@ -36,7 +36,7 @@ export class OrdersummaryComponent implements OnInit {
   }
 
   cartItems: any = [];
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   subtotal: number = 0;
   isLogin: boolean = false;
   userData: any = null;
@@ -50,7 +50,6 @@ export class OrdersummaryComponent implements OnInit {
           return acc + curr.product.price * curr.amount;
         }, 0);
         console.log('subtotal', this.subtotal);
-        this.isLoading = false;
         console.log(response);
       },
       error: (error) => {
@@ -59,6 +58,9 @@ export class OrdersummaryComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.loadCart();
     const user = this._AuthService.user.getValue();
     console.log('user', user);
@@ -127,7 +129,6 @@ export class OrdersummaryComponent implements OnInit {
         next: (response) => {
           // console.log(response);
 
-          this.isLoading = false;
           this.toastr.success('Order Created Sussccefully', 'Success');
           this._Router.navigate(['/']);
         },

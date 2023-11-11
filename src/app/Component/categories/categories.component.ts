@@ -11,11 +11,13 @@ export class CategoriesComponent implements OnInit {
   categories:any;
   isLoading:boolean = true;
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.categories=this.categoryService.getAllCategory().subscribe({
       next:(response)=>{
         
         this.categories=response;
-        this.isLoading = false;
         console.log(response);
         
       },

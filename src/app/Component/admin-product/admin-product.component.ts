@@ -27,10 +27,13 @@ export class AdminProductComponent implements OnInit {
   ////////////////////////////////////////
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.productService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {
@@ -42,7 +45,6 @@ export class AdminProductComponent implements OnInit {
     this.productService.getProductByCatId(this.Cattid).subscribe({
       next: (response) => {
         this.productsByCat = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {
@@ -54,7 +56,6 @@ export class AdminProductComponent implements OnInit {
     this.categoryService.getAllCategory().subscribe({
       next: (response) => {
         this.categories = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {
@@ -68,7 +69,6 @@ export class AdminProductComponent implements OnInit {
     //////////////////////////////////////////////////////
     this.productService.deleteProduct(id).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
 
         this.toastr.success('Item Deleted Successfully');
@@ -87,7 +87,6 @@ export class AdminProductComponent implements OnInit {
     this.products = this.productService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response;
-        this.isLoading = false;
         // console.log(response);
       },
       error: (error) => {

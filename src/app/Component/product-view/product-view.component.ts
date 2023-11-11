@@ -34,7 +34,6 @@ export class ProductViewComponent implements OnInit {
         const user = _AuthService.user.getValue();
         console.log('user', user);
         if (user !== null) {
-          this.isLogin = true;
           this.userData = user;
           this.isAdmin = user.roles.includes('Admin');
           console.log('isAdmin', this.isAdmin);
@@ -48,7 +47,7 @@ export class ProductViewComponent implements OnInit {
   }
   handleAddToCart(event: any, id: any) {
     event.preventDefault();
-    if (this.isLogin) {
+
       console.log('test');
       this._CartService.addToCart(id).subscribe({
         next: (response) => {
@@ -59,17 +58,18 @@ export class ProductViewComponent implements OnInit {
           console.log('error', error);
         },
       });
-    } else {
-      this._Router.navigate(['/login']);
-    }
+
   }
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.product = this.productService
       .getProductById(this.productId)
       .subscribe({
         next: (response) => {
           this.product = response;
-          this.isLoading = false;
           console.log(response);
         },
         error: (error) => {

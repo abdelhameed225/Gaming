@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { Router } from '@angular/router';
@@ -10,12 +10,15 @@ import { tick } from '@angular/core/testing';
   templateUrl: './regester.component.html',
   styleUrls: ['./regester.component.css'],
 })
-export class RegesterComponent {
+export class RegesterComponent implements OnInit {
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
     private toastr: ToastrService
   ) {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+    }
   RegisterForm = new FormGroup({
     UserName: new FormControl('', [
       Validators.required,

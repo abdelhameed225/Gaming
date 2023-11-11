@@ -13,6 +13,7 @@ export class AdminCategoryComponent {
   categories:any;
   isLoading:boolean = true;
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.categories=this.categoryService.getAllCategory().subscribe({
       next:(response)=>{
         

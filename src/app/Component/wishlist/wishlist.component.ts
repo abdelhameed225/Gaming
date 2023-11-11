@@ -13,7 +13,7 @@ import { ProductsService } from 'src/app/Services/product/products.service';
 })
 export class WishlistComponent implements OnInit {
   wishListItems: any = [];
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   isLogin: boolean = false;
   userData: any = null;
   isAdmin: boolean = false;
@@ -46,7 +46,6 @@ export class WishlistComponent implements OnInit {
     this.wishListItems = this._wishListService.getWishList().subscribe({
       next: (response) => {
         this.wishListItems = response;
-        this.isLoading = false;
         console.log(response);
       },
       error: (error) => {
@@ -58,7 +57,6 @@ export class WishlistComponent implements OnInit {
     //////////////////////////////////////////////////////
     this._wishListService.deleteWishListItems(id).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
         this.loadWishList();
         // this.toastr.success('Item Deleted Successfully');
@@ -73,6 +71,9 @@ export class WishlistComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+  }, 800); 
     this.loadWishList();
   }
   handleAddToCart(event: any, id: any) {
